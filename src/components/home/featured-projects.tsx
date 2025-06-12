@@ -1,5 +1,17 @@
 "use client";
 
+import {
+  Calendar,
+  ExternalLink,
+  Folder,
+  Github,
+  User,
+  Flag,
+  Clock,
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import { getDuration } from "@/lib/utils";
 import {
   Card,
@@ -10,17 +22,6 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import {
-  ExternalLink,
-  ArrowRight,
-  Github,
-  Calendar,
-  Folder,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
-
-// import { FaGithub } from "react-icons/fa"; <- Use this after lucide-react remove brand icons (Github)
 import { portfolioData } from "@/lib/data";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
@@ -57,10 +58,7 @@ export function FeaturedProjects() {
     if (!card) return;
 
     const cardWidth = card.clientWidth + 24;
-    const visibleCards = Math.max(
-      1,
-      Math.floor(container.clientWidth / cardWidth)
-    );
+    const visibleCards = Math.max(1, Math.floor(container.clientWidth / cardWidth));
     const scrollBy = (direction === "left" ? -1 : 1) * visibleCards * cardWidth;
 
     container.scrollBy({ left: scrollBy, behavior: "smooth" });
@@ -71,10 +69,7 @@ export function FeaturedProjects() {
     .sort((a, b) => (a.feature?.rank ?? Infinity) - (b.feature?.rank ?? Infinity));
 
   return (
-    <section
-      id="featured-projects"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30"
-    >
+    <section id="featured-projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-12 animate-fade-in-up">
@@ -82,35 +77,20 @@ export function FeaturedProjects() {
             <h2 className="text-3xl sm:text-4xl font-bold mb-2 gradient-text">
               Featured Projects
             </h2>
-            <p className="text-muted-foreground text-lg">
-              Some of my interesting works
-            </p>
+            <p className="text-muted-foreground text-lg">Some of my interesting works</p>
           </div>
           <div className="flex items-center gap-4">
             <div className="flex gap-2">
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() => scroll("left")}
-                disabled={!canScrollLeft}
-                aria-label="Scroll left"
-              >
+              <Button variant="outline" size="icon" onClick={() => scroll("left")} disabled={!canScrollLeft} aria-label="Scroll left">
                 <ChevronLeft className="h-4 w-4" />
               </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() => scroll("right")}
-                disabled={!canScrollRight}
-                aria-label="Scroll right"
-              >
+              <Button variant="outline" size="icon" onClick={() => scroll("right")} disabled={!canScrollRight} aria-label="Scroll right">
                 <ChevronRight className="h-4 w-4" />
               </Button>
             </div>
             <Button variant="outline" asChild>
               <Link href="/projects">
-                View All Projects{" "}
-                <ArrowRight className="h-4 w-4 ml-2" aria-hidden />
+                View All Projects <ArrowRight className="h-4 w-4 ml-2" aria-hidden />
               </Link>
             </Button>
           </div>
@@ -118,17 +98,13 @@ export function FeaturedProjects() {
 
         {/* Project Cards */}
         <div className="overflow-hidden relative">
-          <div
-            ref={scrollRef}
-            className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory"
-          >
+          <div ref={scrollRef} className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory">
             {featured.map((project, index) => (
               <Card
                 key={project.id}
-                className="project-card group snap-start flex-shrink-0 flex flex-col w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(50%-0.75rem)] min-h-[380px]"
+                className="project-card group snap-start flex-shrink-0 flex flex-col w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(50%-0.75rem)] min-h-[420px] hover-lift"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
-                {/* Card Header */}
                 <CardHeader className="pb-4 px-4">
                   <div className="flex justify-between items-start gap-4">
                     <div className="flex gap-4 flex-1 min-w-0">
@@ -152,38 +128,17 @@ export function FeaturedProjects() {
                       </div>
                     </div>
 
-                    {/* GitHub & Demo */}
                     <div className="flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
                       {project.github && (
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          asChild
-                          className="h-8 w-8"
-                        >
-                          <a
-                            href={project.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="GitHub Link"
-                          >
+                        <Button variant="ghost" size="icon" asChild className="h-8 w-8">
+                          <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub Link">
                             <Github className="h-4 w-4" />
                           </a>
                         </Button>
                       )}
                       {project.demo && (
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          asChild
-                          className="h-8 w-8"
-                        >
-                          <a
-                            href={project.demo}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Live Demo"
-                          >
+                        <Button variant="ghost" size="icon" asChild className="h-8 w-8">
+                          <a href={project.demo} target="_blank" rel="noopener noreferrer" aria-label="Live Demo">
                             <ExternalLink className="h-4 w-4" />
                           </a>
                         </Button>
@@ -192,27 +147,14 @@ export function FeaturedProjects() {
                   </div>
                 </CardHeader>
 
-                {/* Card Content */}
                 <CardContent className="px-4 pt-0 flex flex-col flex-1">
-                  <CardDescription className="text-base leading-relaxed mb-6">
-                    {project.description}
-                  </CardDescription>
+                  <CardDescription className="text-base leading-relaxed mb-6">{project.description}</CardDescription>
 
-                  {/* Tech Stack */}
                   <div className="mt-auto pt-4">
-                    <h4 className="text-sm font-semibold mb-2 text-primary">
-                      Tech Stack
-                    </h4>
+                    <h4 className="text-sm font-semibold mb-2 text-primary">Tech Stack</h4>
                     <div className="flex flex-wrap gap-2 max-h-[60px] overflow-hidden">
-                      {(showAllTech[project.id]
-                        ? project.tech
-                        : project.tech.slice(0, 6)
-                      ).map((tech) => (
-                        <Badge
-                          key={tech}
-                          variant="outline"
-                          className="text-xs px-2.5 py-0.5 max-w-[110px] truncate text-muted-foreground border-muted"
-                        >
+                      {(showAllTech[project.id] ? project.tech : project.tech.slice(0, 6)).map((tech) => (
+                        <Badge key={tech} variant="outline" className="text-xs px-2.5 py-0.5 max-w-[110px] truncate text-muted-foreground border-muted">
                           {tech}
                         </Badge>
                       ))}
@@ -227,44 +169,55 @@ export function FeaturedProjects() {
                           }
                           className="text-xs px-2.5 py-0.5 cursor-pointer text-muted-foreground"
                         >
-                          {showAllTech[project.id]
-                            ? "Show Less"
-                            : `+${project.tech.length - 4}`}
+                          {showAllTech[project.id] ? "Show Less" : `+${project.tech.length - 4}`}
                         </Badge>
                       )}
                     </div>
                   </div>
 
-                  {/* Footer */}
-                  <div className="pt-4 border-t mt-4">
-                    <div className="grid grid-cols-3 gap-3 text-sm w-full">
-                      <div className="text-center p-3 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 text-xs rounded-lg">
-                        <div className="font-semibold truncate">
+                  {/* 🔥 Updated modern footer */}
+                  <div className="pt-4 border-t mt-4 grid grid-cols-3 gap-3 text-sm w-full">
+                    {/* Role */}
+                    <div className="flex flex-col items-start text-xs gap-2">
+                      <div className="flex items-center gap-1 text-muted-foreground pl-1">
+                        <User className="w-4 h-4" /> Role
+                      </div>
+                      <div className="w-full">
+                        <div className="px-3 py-1 rounded-md bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">
                           {project.collabType}
                         </div>
-                        <div className="text-muted-foreground">Role</div>
                       </div>
-                      <div
-                        className={`text-center p-3 rounded-lg text-xs ${
-                          project.status === "Completed"
-                            ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
-                            : project.status === "In Progress"
-                            ? "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
-                            : project.status === "On Hold"
-                            ? "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
-                            : "bg-muted/50 text-muted-foreground"
-                        }`}
-                      >
-                        <div className="font-semibold truncate">
+                    </div>
+
+                    {/* Status */}
+                    <div className="flex flex-col items-start text-xs gap-2">
+                      <div className="flex items-center gap-1 text-muted-foreground pl-1">
+                        <Flag className="w-4 h-4" /> Status
+                      </div>
+                      <div className="w-full">
+                        <div
+                          className={`px-3 py-1 rounded-md w-full text-start ${
+                            project.status === "Completed"
+                              ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                              : project.status === "In Progress"
+                              ? "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
+                              : "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
+                          }`}
+                        >
                           {project.status}
                         </div>
-                        <div className="text-muted-foreground">Status</div>
                       </div>
-                      <div className="text-center p-3 bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-200 text-xs rounded-lg">
-                        <div className="font-semibold truncate">
+                    </div>
+
+                    {/* Duration */}
+                    <div className="flex flex-col items-start text-xs gap-2">
+                      <div className="flex items-center gap-1 text-muted-foreground pl-1">
+                        <Clock className="w-4 h-4" /> Duration
+                      </div>
+                      <div className="w-full">
+                        <div className="px-3 py-1 rounded-md w-full text-start bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-200">
                           {getDuration(project.start, project.end)}
                         </div>
-                        <div className="text-muted-foreground">Duration</div>
                       </div>
                     </div>
                   </div>
