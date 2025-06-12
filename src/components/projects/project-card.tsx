@@ -125,7 +125,9 @@ export default function ProjectCard({
       <Card
         role="article"
         aria-labelledby={`project-${project.id}-title`}
-        className={`group card-hover flex flex-col min-h-[500px] ${isMobile ? "" : "animate-fade-in"}`}
+        className={`group card-hover flex flex-col min-h-[500px] ${
+          isMobile ? "" : "animate-fade-in"
+        }`}
       >
         <CardHeader className="pb-4 px-4">
           <div className="flex items-start justify-between gap-4">
@@ -167,7 +169,11 @@ export default function ProjectCard({
                   asChild
                   aria-label="View GitHub repository"
                 >
-                  <a href={project.github} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Github className="h-4 w-4" />
                   </a>
                 </Button>
@@ -180,7 +186,11 @@ export default function ProjectCard({
                   asChild
                   aria-label="View live demo"
                 >
-                  <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <ExternalLink className="h-4 w-4" />
                   </a>
                 </Button>
