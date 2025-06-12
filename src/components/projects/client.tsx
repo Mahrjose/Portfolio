@@ -30,11 +30,15 @@ type Props = {
   portfolioData: {
     projects: Project[];
     wakatime: { last7days: string };
+    topProject : {
+      name : string,
+      link : string
+    }
   };
 };
 
 export default function ProjectsClient({ portfolioData }: Props) {
-  const { projects, wakatime } = portfolioData;
+  const { projects, wakatime, topProject } = portfolioData;
 
   const [activeType, setActiveType] = useState("All");
   const [search, setSearch] = useState("");
@@ -125,7 +129,7 @@ export default function ProjectsClient({ portfolioData }: Props) {
 
     return result.map((p) => ({
       ...p,
-      id: String(p.id), // ✅ force string type for ProjectCard
+      id: String(p.id), //
     }));
   }, [
     projects,
@@ -154,16 +158,23 @@ export default function ProjectsClient({ portfolioData }: Props) {
         <ProjectsSummary
           statusCount={statusCount}
           totalProjects={projects.length}
+          topProject={topProject}
           topLanguage={topLanguage}
           averageTime={wakatime?.last7days || "40h 07m"}
           activeStatus={activeStatus}
           setActiveStatus={setActiveStatus}
           onTopLanguageClick={() => {
-            setActiveLanguage(topLanguage);
-            setSortOrder("az");
+            if (activeLanguage === topLanguage) {
+              setActiveLanguage(null);
+              setSortOrder("newest");
+            } else {
+              setActiveLanguage(topLanguage);
+              setSortOrder("az");
+            }
             setCurrentPage(1);
           }}
         />
+
         <div className="flex flex-col lg:flex-row gap-10">
           <ProjectsSidebar
             projects={projects}

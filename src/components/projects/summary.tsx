@@ -1,7 +1,7 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
-import { useEffect, useState } from "react";
+import { CheckCircle2, Clock as ProgressClock, Pause, Layers, Code2, Star } from "lucide-react";
+import StatCard from "./statcard";
 import Link from "next/link";
 
 type Props = {
@@ -9,6 +9,10 @@ type Props = {
   totalProjects: number;
   topLanguage: string;
   averageTime: string;
+  topProject: {
+    name: string;
+    link: string;
+  };
   activeStatus: string | null;
   setActiveStatus: (status: string | null) => void;
   onTopLanguageClick: () => void;
@@ -19,92 +23,101 @@ export default function ProjectsSummary({
   totalProjects,
   topLanguage,
   averageTime,
+  topProject,
   activeStatus,
   setActiveStatus,
   onTopLanguageClick,
 }: Props) {
-  const statuses = ["In Progress", "On Hold", "Completed"];
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
-
-  const getStatusColor = (status: string) => {
-    if (status === "Completed") return "green";
-    if (status === "In Progress") return "blue";
-    return "yellow";
-  };
+  const counters = [
+    {
+      label: "In Progress",
+      count: statusCount["In Progress"],
+      icon: ProgressClock,
+      bg: "bg-gradient-to-r from-blue-500 to-blue-600",
+      ring: "ring-blue-500/20",
+      value: "In Progress",
+    },
+    {
+      label: "On Hold",
+      count: statusCount["On Hold"],
+      icon: Pause,
+      bg: "bg-gradient-to-r from-amber-500 to-orange-500",
+      ring: "ring-amber-500/20",
+      value: "On Hold",
+    },
+    {
+      label: "Completed",
+      count: statusCount["Completed"],
+      icon: CheckCircle2,
+      bg: "bg-gradient-to-r from-emerald-500 to-green-600",
+      ring: "ring-emerald-500/20",
+      value: "Completed",
+    },
+  ];
 
   return (
     <section aria-labelledby="project-summary-heading" className="mb-10">
-      {/* Filter Badges */}
-      <div
-        className="flex flex-wrap justify-center gap-3 text-sm mb-6"
-        role="group"
-        aria-label="Project Status Filters"
-      >
-        {statuses.map((status) => {
-          const isActive = activeStatus === status;
-          const color = getStatusColor(status);
-          return (
-            <Badge
-              key={status}
-              onClick={() =>
-                setActiveStatus(isActive ? null : status)
-              }
-              aria-pressed={isActive}
-              aria-label={`Filter by ${status}`}
-              role="button"
-              className={`cursor-pointer ring-offset-background transition focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2
-                ${
-                  color === "green"
-                    ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
-                    : color === "blue"
-                    ? "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
-                    : "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
-                }
-                ${isActive ? "ring-2 ring-primary" : ""}
-              `}
-            >
-              {status}: {statusCount[status]}
-            </Badge>
-          );
-        })}
-      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
 
-      {/* Summary Cards */}
-      <div
-        className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm"
-        role="list"
-      >
-        <article
-          role="listitem"
-          className="p-4 rounded-lg bg-purple-100 text-center dark:bg-purple-900 dark:text-purple-200"
-        >
-          <h2 className="font-bold text-xl">{totalProjects}</h2>
-          <p className="text-muted-foreground">Total Projects</p>
-        </article>
+        {/* Total Projects */}
+        <div className="w-full">
+          <StatCard
+            title="Total Projects"
+            value={totalProjects}
+            icon={Layers}
+            gradient="bg-gradient-to-br from-fuchsia-500 via-purple-600 to-indigo-600"
+          />
+        </div>
 
-        <button
-          onClick={onTopLanguageClick}
-          aria-label={`Filter by top language: ${topLanguage}`}
-          className="p-4 rounded-lg bg-sky-100 text-center dark:bg-sky-900 dark:text-sky-200 hover:brightness-95 transition block"
-        >
-          <h2 className="font-bold text-xl">{topLanguage}</h2>
-          <p className="text-muted-foreground">Top Language</p>
+        {/* Top Language */}
+        <button className="block w-full text-left cursor-pointer" onClick={onTopLanguageClick}>
+          <StatCard
+            title="Top Language"
+            value={topLanguage}
+            icon={Code2}
+            gradient="bg-gradient-to-br from-cyan-400 via-sky-500 to-blue-600"
+          />
         </button>
 
-        <Link
-          href="https://wakatime.com/@Mahrjose"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="View WakaTime coding statistics"
-          className={`p-4 rounded-lg bg-orange-100 text-center dark:bg-orange-900 dark:text-orange-200 transition block ${
-            isMobile ? "hover:brightness-100" : "hover:brightness-95"
-          }`}
-        >
-          <h2 className="font-bold text-lg">{averageTime}</h2>
-          <p className="text-muted-foreground">
-            Avg Coding Time (Last 7 Days)
-          </p>
+        {/* Average Coding Time */}
+        <Link href="https://wakatime.com/@Mahrjose" target="_blank" className="block w-full cursor-pointer">
+          <StatCard
+            title="Avg Coding Time"
+            value={averageTime}
+            subtitle="Last 7 Days"
+            icon={ProgressClock}
+            gradient="bg-gradient-to-br from-amber-400 via-orange-500 to-rose-500"
+          />
         </Link>
+
+        {/* Top Project */}
+        <Link href={topProject.link} target="_blank" className="block w-full cursor-pointer">
+          <StatCard
+            title="Top Project"
+            value={topProject.name}
+            icon={Star}
+            gradient="bg-gradient-to-br from-rose-500 via-pink-500 to-red-500"
+          />
+        </Link>
+      </div>
+
+      {/* Status counters */}
+      <div className="flex flex-wrap justify-center gap-3 mb-8">
+        {counters.map(({ label, count, icon: Icon, bg, ring, value }) => {
+          const isActive = activeStatus === value;
+          return (
+            <button
+              key={label}
+              onClick={() => setActiveStatus(isActive ? null : value)}
+              className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-xs font-medium rounded-lg text-white ${bg} shadow-md ring-2 ${ring} transition-all duration-300 
+                ${isActive ? "ring-offset-2 ring-offset-background scale-105" : "hover:scale-105"}`}
+              aria-pressed={isActive}
+            >
+              <Icon className="w-4 h-4" />
+              {label}: {count}
+            </button>
+          );
+        })}
       </div>
     </section>
   );
