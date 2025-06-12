@@ -24,12 +24,10 @@ const meta = {
 export const portfolioData = {
   hero: {
     name: meta.name,
-    title: "AI Engineer & Software Engineer",
+    title: "Software Engineer",
     picture: "/images/profile/profile.jpg",
     description:
-      "Building intelligent systems at the intersection of AI and software. Interested in LLMs, \
-      AI Agents, MLOps, and scalable infrastructure with growing focus on Computer Vision and \
-      Deep Learning.",
+      "I bring innovative ideas to life by building intelligent systems that truly make a difference. My passion lies in crafting impactful solutions, exploring frontiers in AI, Machine Learning, and scalable software for a smarter, more connected world.",
     location: meta.location,
     experience: "1+ Years of Experience",
     highlights: [
@@ -125,6 +123,11 @@ export const portfolioData = {
   wakatime: {
     last7days: "40h 07m",
     profileUrl: "https://wakatime.com/@Mahrjose",
+  },
+
+  topProject : {
+    name : "Hive",
+    link : "https://github.com/mahrjose/hive"
   },
 
   projects: [
