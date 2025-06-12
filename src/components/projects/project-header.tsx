@@ -5,7 +5,7 @@ export default function ProjectsHeader() {
         Projects
       </h1>
       <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-        Explore a wide range of development and personal projects.
+        Explore a curated showcase of my wide range of development and personal projects, bringing impactful solutions to life.
       </p>
     </header>
   );
