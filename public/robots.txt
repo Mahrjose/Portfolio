@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://mahrabhossain.me
+
+# Sitemaps
+Sitemap: https://mahrabhossain.me/sitemap.xml
