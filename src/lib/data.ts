@@ -30,13 +30,7 @@ export const portfolioData = {
       "I bring innovative ideas to life by building intelligent systems that truly make a difference. My passion lies in crafting impactful solutions, exploring frontiers in AI, Machine Learning, and scalable software for a smarter, more connected world.",
     location: meta.location,
     experience: "1+ Years of Experience",
-    highlights: [
-      "LLMs & AI Agents",
-      "Deep Learning",
-      "Computer Vision",
-      "MLOps & Infrastructure",
-      "Backend Engineering",
-    ],
+
     social: [
       { name : "Facebook", url : meta.social.facebook },
       { name: "LinkedIn", url: meta.social.linkedin },
