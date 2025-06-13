@@ -26,7 +26,7 @@ export function ResumeDownload() {
             download={mainResume.filename}
             aria-label={`Download primary resume: ${mainResume.title}`}
           >
-            <Button size="lg" className="btn-primary hover-lift btn-hover-slide">
+            <Button size="lg" className="btn-primary cursor-pointer  hover-lift btn-hover-slide">
               <Download className="h-4 w-4 mr-2" />
               {mainResume.title}
             </Button>
