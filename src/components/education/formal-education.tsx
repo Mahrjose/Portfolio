@@ -19,7 +19,6 @@ import { portfolioData } from "@/lib/data";
 
 export default function FormalEducation() {
   const { education } = portfolioData;
-  console.log(education);
 
   return (
     <section className="animate-fade-in-up stagger-2" id="formal-education">

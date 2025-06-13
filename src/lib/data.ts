@@ -1,5 +1,5 @@
-
-const meta = {
+export const meta = {
+  domain : "https://mahrabhossain.me",
   name: "Mirza Mahrab Hossain",
   location : "Dhaka, Bangladesh",
   phone : "+880 1869-585472",
@@ -17,7 +17,12 @@ const meta = {
     mydramalist : "https://mydramalist.com/profile/Mahrjose",
     imdb : "https://www.imdb.com/user/ur69168196/",
     steam: "https://steamcommunity.com/id/mirzamahrabhossain/",
-  
+    // ---------------------------------------------------------------- //
+    leetcode : "https://leetcode.com/u/Mahrjose/",
+    codeforces: "https://codeforces.com/profile/Mahrjose",
+    hackerrank: "https://www.hackerrank.com/profile/Mahrjose",
+    hackerearth : "https://www.hackerearth.com/@Mahrjose",
+    picoctf : "https://play.picoctf.org/users/Mahrjose",
   }
 }
 
@@ -30,13 +35,7 @@ export const portfolioData = {
       "I bring innovative ideas to life by building intelligent systems that truly make a difference. My passion lies in crafting impactful solutions, exploring frontiers in AI, Machine Learning, and scalable software for a smarter, more connected world.",
     location: meta.location,
     experience: "1+ Years of Experience",
-    highlights: [
-      "LLMs & AI Agents",
-      "Deep Learning",
-      "Computer Vision",
-      "MLOps & Infrastructure",
-      "Backend Engineering",
-    ],
+
     social: [
       { name : "Facebook", url : meta.social.facebook },
       { name: "LinkedIn", url: meta.social.linkedin },
@@ -372,25 +371,25 @@ export const portfolioData = {
       {
         type: "main",
         title: "Download Resume",
-        url: "/documents/main-cv.pdf",
+        url: "/documents/cv/main-cv.pdf",
         filename: "Mirza_Mahrab_Hossain_CV.pdf"
       },
       {
         type: "role",
         title: "AI Engineer Resume",
-        url: "/documents/resume-ai.pdf",
+        url: "/documents/cv/resume-ai.pdf",
         filename: "Mirza_Mahrab_Hossain_AI_Engineer_CV.pdf"
       },
       {
         type: "role",
         title: "Academic Resume",
-        url: "/documents/resume-academic.pdf",
+        url: "/documents/cv/resume-academic.pdf",
         filename: "Mirza_Mahrab_Hossain_Academic_CV.pdf"
       },
       {
         type: "role",
         title: "Software Engineer Resume",
-        url: "/documents/resume-ml.pdf",
+        url: "/documents/cv/resume-ml.pdf",
         filename: "Mirza_Mahrab_Hossain_Software_Engineer_CV.pdf"
       }
     ],
@@ -680,6 +679,7 @@ export const portfolioData = {
         title: "Analysis and Qualitative Effects of Large Breasts on Aerodynamic Performance ",
         year: "2018",
         type: "Thesis",
+        host: "",
         coAuthors: ["Nihal Islam","Noushin Tabassum"],
         supervisor: "Dr. Jannatun Noor Mukta",
         abstract: "A computational fluid dynamics methodology is used to study the salient flow features around the breasts of a human figure and to describe the aerodynamic differences imparted by their geometric presence. Two models are proposed for examination: a 3-dimensional reference based on a character design with a significantly buxom figure and a modification of this design where the breast size is reduced significantly. The two models are tested at speeds ranging from 1 to 30 m⋅s^-1 using Reynolds-averaged Navier Stokes (RANS). Drag, lift, and skin friction forces, along with turbulence kinetic energy (TKE), are investigated and compared between the different models. The present results are expected to provide useful information on the validity of the statement, 'Flat is Justice' in terms of an aerodynamic standpoint. In addition to this, the results can offer worthwhile data investigating the anthropometrical presence of large breasts on sport aerodynamics.",
