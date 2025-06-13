@@ -1,27 +1,56 @@
-import "./globals.css";
-import type React from "react";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { ThemeProvider } from "@/components/layout/theme-provider";
-import { Navigation } from "@/components/layout/navigation";
-import { Footer } from "@/components/layout/footer"
+'use client';
 
-const inter = Inter({ subsets: ["latin"] });
+import './globals.css';
+import { Inter } from 'next/font/google';
+import { ThemeProvider } from '@/components/layout/theme-provider';
+import { Navigation } from '@/components/layout/navigation';
+import { Footer } from '@/components/layout/footer';
+import dynamic from 'next/dynamic';
+import { meta } from '@/lib/data';
+import SEO from '../../seo.config';
 
-export const metadata: Metadata = {
-  title: "Mirza Mahrab Hossain - AI Engineer Portfolio",
-  description:
-    "AI Engineer specializing in machine learning, deep learning, and AI-powered applications",
-  generator: "v0.dev",
-};
+const DefaultSeo = dynamic(() => import('next-seo').then(mod => mod.DefaultSeo), { ssr: false });
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const social = meta.social;
+const domain = meta.domain;
+const inter = Inter({ subsets: ['latin'], display: 'swap' });
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const personJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: meta.name,
+    url: domain,
+    jobTitle: 'AI Engineer & Software Developer',
+    description: 'AI Engineer and Software Developer specializing in machine learning, cybersecurity, and web development.',
+    sameAs: [
+      social.twitter,
+      social.facebook,
+      social.linkedin,
+      social.github,
+      social.reddit,
+      social.discord,
+      social.leetcode,
+      social.codeforces,
+      social.hackerrank,
+      social.hackerearth,
+      social.picoctf,
+      social.goodreads,
+      social.myanimelist,
+      social.mydramalist,
+      social.imdb,
+      social.steam,
+    ].filter(Boolean),
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+      </head>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
@@ -29,8 +58,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange={false}
         >
+          <DefaultSeo {...SEO} />
           <Navigation />
-          <div className="min-h-screen">{children}</div>
+          <main className="min-h-screen">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>
