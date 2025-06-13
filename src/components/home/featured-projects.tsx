@@ -212,7 +212,8 @@ export function FeaturedProjects() {
                     </CardDescription>
 
                     <div className="mt-auto pt-4">
-                      <h4 className="text-sm font-semibold mb-2 text-primary">
+                      <h4 className="text-sm font-semibold mb-2 text-primary flex items-center gap-2">
+                        <span className="w-1 h-4 bg-primary rounded-full"></span>
                         Tech Stack
                       </h4>
                       <div className="flex flex-wrap gap-2 max-h-[60px] overflow-hidden">
