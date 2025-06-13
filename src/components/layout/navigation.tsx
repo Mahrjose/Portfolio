@@ -10,8 +10,8 @@ import { cn } from "@/lib/utils"
 const navItems = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Projects", href: "/projects" },
   { name: "Blog", href: "/blog" },
+  { name: "Projects", href: "/projects" },
   { name: "Resume", href: "/resume" },
   { name: "Education", href: "/education" },
   { name: "Research", href: "/research" },
@@ -39,7 +39,6 @@ export function Navigation() {
     }
 
     const handleMouseMove = (e: MouseEvent) => {
-      // Show navbar when hovering near the top of the screen (within 50px)
       if (e.clientY <= 50) {
         setIsHoveringTop(true)
         setIsVisible(true)
@@ -77,7 +76,7 @@ export function Navigation() {
         <div className="flex justify-between items-center h-16">
           <button
             onClick={() => handleNavClick("/")}
-            className="font-bold text-lg sm:text-xl text-foreground hover:text-primary transition-colors hover-text-glow"
+            className="font-bold text-lg sm:text-xl text-foreground hover:text-primary transition-colors duration-200 ease-in-out cursor-pointer"
           >
             Mirza Mahrab Hossain
           </button>
@@ -89,19 +88,26 @@ export function Navigation() {
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
                 className={cn(
-                  "text-xs font-medium transition-colors hover:text-primary hover-text-glow",
-                  pathname === item.href ? "text-primary" : "text-muted-foreground",
+                  "text-xs font-medium transition-all duration-200 ease-in-out cursor-pointer",
+                  pathname === item.href 
+                    ? "text-primary" 
+                    : "text-muted-foreground",
+                  "hover:text-primary hover:drop-shadow-[0_0_6px_rgba(0,255,255,0.5)]"
                 )}
               >
                 {item.name}
               </button>
             ))}
-            <ThemeToggle />
+            <div className="flex items-center">
+              <ThemeToggle />
+            </div>
           </div>
 
           {/* Mobile Navigation */}
           <div className="md:hidden flex items-center space-x-4">
-            <ThemeToggle />
+            <div className="flex items-center">
+              <ThemeToggle />
+            </div>
             <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)} className="hover-lift">
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
@@ -117,8 +123,10 @@ export function Navigation() {
                   key={item.name}
                   onClick={() => handleNavClick(item.href)}
                   className={cn(
-                    "block w-full text-left py-3 px-2 text-xs font-medium transition-colors hover:text-primary hover:bg-muted/50 rounded-md",
-                    pathname === item.href ? "text-primary bg-muted/50" : "text-muted-foreground",
+                    "block w-full text-left py-3 px-2 text-xs font-medium transition-all duration-200 ease-in-out cursor-pointer rounded-md",
+                    pathname === item.href 
+                      ? "text-primary bg-muted/50" 
+                      : "text-muted-foreground hover:text-primary hover:bg-muted/50 hover:drop-shadow-[0_0_6px_rgba(0,255,255,0.5)]"
                   )}
                 >
                   {item.name}
