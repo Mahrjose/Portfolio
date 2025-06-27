@@ -107,6 +107,7 @@ export function FeaturedProjects() {
                   onClick={() => scroll("left")}
                   disabled={!canScrollLeft}
                   aria-label="Scroll left"
+                  className="cursor-pointer"
                 >
                   <ChevronLeft className="h-4 w-4" />
                 </Button>
@@ -116,6 +117,7 @@ export function FeaturedProjects() {
                   onClick={() => scroll("right")}
                   disabled={!canScrollRight}
                   aria-label="Scroll right"
+                  className="cursor-pointer"
                 >
                   <ChevronRight className="h-4 w-4" />
                 </Button>

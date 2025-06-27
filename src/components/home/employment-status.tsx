@@ -187,7 +187,7 @@ export function EmploymentStatus() {
                     <Button
                       variant="outline"
                       size="lg"
-                      className="hover-lift"
+                      className="hover"
                       asChild
                     >
                       <Link href="/contact">
