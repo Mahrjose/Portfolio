@@ -17,7 +17,7 @@ export function SocialIcons({ social, className, variant = "ghost", size = "icon
   return (
     <div className={cn("flex gap-2", className)}>
       {social.map((link) => (
-        <Button key={link.name} variant={variant} size={size} className="hover-lift" asChild>
+        <Button key={link.name} variant={variant} size={size} className="hover" asChild>
           <a href={link.url} target="_blank" rel="noopener noreferrer" aria-label={link.name}>
             {link.name === "GitHub" && <Github className="h-5 w-5" />}
             {link.name === "LinkedIn" && <Linkedin className="h-5 w-5" />}
