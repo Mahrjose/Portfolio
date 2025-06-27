@@ -56,7 +56,7 @@ export default function ProjectsSummary({
     <section className="mb-10 w-full">
 
       {/* Desktop full StatCards */}
-      <div className="hidden sm:grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
+      {/* <div className="hidden sm:grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
         <div className="w-full">
           <StatCard
             title="Total Projects"
@@ -93,7 +93,7 @@ export default function ProjectsSummary({
             gradient="bg-gradient-to-br from-rose-100 via-pink-200 to-red-300 dark:from-rose-700 dark:via-pink-700 dark:to-red-800"
           />
         </Link>
-      </div>
+      </div> */}
 
       {/* Mobile single-line 3-stat design */}
       <div className="sm:hidden grid grid-cols-3 gap-2 mb-4 w-full">
