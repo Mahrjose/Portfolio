@@ -1,12 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, Download, MapPin, Cpu, Book, Heart } from "lucide-react";
+import { Mail, MapPin, Cpu, Book, Heart, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { SocialIcons } from "@/components/layout/social-icons";
 
 export default function ProfileSidebarCard({ hero }: { hero: any }) {
   return (
-    <Card className="sticky top-24 card-hover" aria-label="Profile sidebar">
+    <Card className="sticky top-24" aria-label="Profile sidebar">
       <CardHeader className="text-center">
         <div className="w-20 h-20 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center animate-float md:animate-float">
           <Heart className="h-10 w-10 text-primary" aria-hidden />
@@ -30,18 +30,25 @@ export default function ProfileSidebarCard({ hero }: { hero: any }) {
           </div>
         </div>
 
-        <div className="space-y-2">
-          <Button className="w-full text-xs h-8" asChild>
-            <Link href="/contact">
-              <Mail className="h-3 w-3 mr-2" aria-hidden /> Contact Me
-            </Link>
-          </Button>
-          <Button variant="outline" className="w-full text-xs h-8" asChild>
-            <Link href="/resume">
-              <Download className="h-3 w-3 mr-2" aria-hidden /> View Resume
-            </Link>
-          </Button>
-        </div>
+<div className="space-y-2">
+  <Button className="w-full text-xs h-8" asChild>
+    <Link href="/contact">
+      <Mail className="h-3 w-3 mr-2" aria-hidden /> Contact Me
+    </Link>
+  </Button>
+
+  <Button variant="outline" className="w-full text-xs h-8" asChild>
+    <Link
+      href="https://blog.mahrabhossain.me"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <BookOpen className="h-3 w-3 mr-2" aria-hidden /> Visit My Blog
+    </Link>
+  </Button>
+</div>
+
+
 
         <div className="pt-4 border-t">
           <SocialIcons social={hero.social} className="justify-center" />
