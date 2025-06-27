@@ -24,6 +24,7 @@ export default function SocialLinksCard() {
             { name: "GitHub", url: contact.social.github },
             { name: "Facebook", url: contact.social.facebook },
             { name: "Twitter", url: contact.social.twitter },
+            { name: "Discord", url: contact.social.discord},
             { name: "Reddit", url: contact.social.reddit },
           ]}
           variant="outline"
