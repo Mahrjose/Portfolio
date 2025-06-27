@@ -35,7 +35,7 @@ export function SkillsGrid() {
   const skills = resume.skills;
 
   return (
-    <Card className="card-hover">
+    <Card >
       <CardHeader>
         <CardTitle className="text-xl flex items-center gap-2">
           <Code className="h-5 w-5 text-primary" />
