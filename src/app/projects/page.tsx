@@ -1,16 +1,21 @@
-'use client';
+// temp solution for metadata withouth dynamic SEO
+export const metadata = {
+  title: 'Projects | Mirza Mahrab Hossain',
+  description: 'Browse featured software, AI, and cybersecurity projects by Mirza Mahrab Hossain.',
+};
 
-import dynamic from 'next/dynamic';
+
 import ProjectsClient from '@/components/projects/client';
 import { portfolioData } from '@/lib/data';
-import { meta } from '@/lib/data';
 
-const NextSeo = dynamic(() => import('next-seo').then(mod => mod.NextSeo), { ssr: false });
+// import dynamic from 'next/dynamic';
+// import { meta } from '@/lib/data';
+// const NextSeo = dynamic(() => import('next-seo').then(mod => mod.NextSeo), { ssr: false });
 
 export default function ProjectsPage() {
   return (
     <>
-      <NextSeo
+      {/* <NextSeo
         title="Projects | Mirza Mahrab Hossain"
         description="Explore Mirza Mahrab Hossain's AI and development projects, including web apps, agents, and research builds."
         canonical={`${meta.domain}/projects`}
@@ -35,7 +40,7 @@ export default function ProjectsPage() {
           handle: '@mahrjosee',
           site: '@mahrjosee',
         }}
-      />
+      /> */}
       <ProjectsClient portfolioData={portfolioData} />
     </>
   );

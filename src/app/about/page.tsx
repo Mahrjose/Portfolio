@@ -1,6 +1,10 @@
-'use client';
+// temp solution for metadata withouth dynamic SEO
+export const metadata = {
+  title: 'About | Mirza Mahrab Hossain',
+  description: 'Learn more about Mirza Mahrab Hossain — Software engineer, AI & Cybersecurity enthusiast, and passionate developer.',
+};
 
-import dynamic from 'next/dynamic';
+
 import AboutHeader from '@/components/about/about-header';
 import ProfileSidebarCard from '@/components/about/profile';
 import MyStorySection from '@/components/about/personal-story';
@@ -10,16 +14,17 @@ import PlatformsGrid from '@/components/about/socials';
 import LanguagesGrid from '@/components/about/languages';
 import PhilosophySection from '@/components/about/philosophy';
 import { portfolioData } from '@/lib/data';
-import { meta } from '@/lib/data';
 
-const NextSeo = dynamic(() => import('next-seo').then(mod => mod.NextSeo), { ssr: false });
+// import dynamic from 'next/dynamic';
+// import { meta } from '@/lib/data';
+// const NextSeo = dynamic(() => import('next-seo').then(mod => mod.NextSeo), { ssr: false });
 
 export default function AboutPage() {
   const { about, hero } = portfolioData;
 
   return (
     <>
-      <NextSeo
+      {/* <NextSeo
         title="About | Mirza Mahrab Hossain"
         description={about.summary}
         canonical={`${meta.domain}/about`}
@@ -44,7 +49,7 @@ export default function AboutPage() {
           handle: '@mahrjosee',
           site: '@mahrjosee',
         }}
-      />
+      /> */}
       <main className="min-h-screen pt-20 pb-12 page-transition">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <AboutHeader summary={about.summary} />
