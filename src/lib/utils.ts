@@ -19,7 +19,7 @@ export function getDuration(start?: string, end?: string) {
   const months = differenceInMonths(endDate, startDate);
 
   if (!end) {
-    return `Started ${format(startDate, "MMMM yyyy")}`;
+    return `Started ${format(startDate, "MMMM")}`;
   }
 
   if (days < 7) {
