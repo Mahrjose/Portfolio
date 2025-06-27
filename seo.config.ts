@@ -1,7 +1,7 @@
 "use client";
 
 import { DefaultSeoProps } from 'next-seo';
-import { meta } from '@/lib/data';
+import { meta } from '@/lib/data/data';
 
 const domain = meta.domain;
 
