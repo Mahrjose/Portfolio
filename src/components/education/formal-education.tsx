@@ -15,7 +15,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import { portfolioData } from "@/lib/data";
+import { portfolioData } from "@/lib/data/data";
 
 export default function FormalEducation() {
   const { education } = portfolioData;

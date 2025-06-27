@@ -6,7 +6,7 @@ export const metadata = {
 
 
 import ProjectsClient from '@/components/projects/client';
-import { portfolioData } from '@/lib/data';
+import { portfolioData } from '@/lib/data/data';
 
 // import dynamic from 'next/dynamic';
 // import { meta } from '@/lib/data';

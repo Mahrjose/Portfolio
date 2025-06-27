@@ -15,7 +15,7 @@ import {
   CheckCircle,
   ServerCog,
 } from "lucide-react";
-import { portfolioData } from "@/lib/data";
+import { portfolioData } from "@/lib/data/data";
 
 const iconMap: Record<string, React.ReactNode> = {
   "Programming Languages": <Code2 className="h-4 w-4 text-primary" />,

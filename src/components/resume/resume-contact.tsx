@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Linkedin, Github, Facebook } from "lucide-react";
-import { portfolioData } from "@/lib/data";
+import { portfolioData } from "@/lib/data/data";
 
 export function ContactCard() {
   const { contact } = portfolioData;

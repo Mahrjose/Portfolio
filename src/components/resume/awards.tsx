@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Trophy, Star, ArrowUpRight } from "lucide-react";
-import { portfolioData } from "@/lib/data";
+import { portfolioData } from "@/lib/data/data";
 
 export function AwardsCard() {
   const { resume } = portfolioData;

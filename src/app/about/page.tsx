@@ -13,7 +13,7 @@ import HobbiesGrid from '@/components/about/hobbies';
 import PlatformsGrid from '@/components/about/socials';
 import LanguagesGrid from '@/components/about/languages';
 import PhilosophySection from '@/components/about/philosophy';
-import { portfolioData } from '@/lib/data';
+import { portfolioData } from '@/lib/data/data';
 
 // import dynamic from 'next/dynamic';
 // import { meta } from '@/lib/data';

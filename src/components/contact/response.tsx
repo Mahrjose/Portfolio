@@ -1,5 +1,5 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { portfolioData } from "@/lib/data";
+import { portfolioData } from "@/lib/data/data";
 
 export default function ResponseTimeCard() {
   const { contact } = portfolioData;

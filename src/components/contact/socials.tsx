@@ -5,7 +5,7 @@ import {
   CardDescription,
   CardContent,
 } from "@/components/ui/card";
-import { portfolioData } from "@/lib/data";
+import { portfolioData } from "@/lib/data/data";
 import { SocialIcons } from "@/components/layout/social-icons";
 
 export default function SocialLinksCard() {

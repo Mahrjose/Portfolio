@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Download, Mail, MapPin, Briefcase, FolderOpen } from "lucide-react";
-import { portfolioData } from "@/lib/data";
+import { portfolioData } from "@/lib/data/data";
 import { SocialIcons } from "@/components/layout/social-icons";
 import Link from "next/link";
 

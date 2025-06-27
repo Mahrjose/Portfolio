@@ -7,7 +7,7 @@ import {
   SiHackerrank,
   SiHackerearth,
 } from "react-icons/si";
-import { portfolioData } from "@/lib/data";
+import { portfolioData } from "@/lib/data/data";
 
 const iconMap: Record<string, ReactElement> = {
   LeetCode: <SiLeetcode className="h-5 w-5 text-orange-500" />,

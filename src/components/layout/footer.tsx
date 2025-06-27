@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Heart } from "lucide-react"
 import { SocialIcons } from "@/components/layout/social-icons"
-import { portfolioData } from "@/lib/data"
+import { portfolioData } from "@/lib/data/data"
 
 export function Footer() {
   return (

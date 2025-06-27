@@ -12,7 +12,7 @@ import {
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { portfolioData } from "@/lib/data";
+import { portfolioData } from "@/lib/data/data";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const typeIconMap = {

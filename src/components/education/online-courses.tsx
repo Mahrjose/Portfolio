@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { portfolioData } from "@/lib/data";
+import { portfolioData } from "@/lib/data/data";
 import { cn } from "@/lib/utils";
 
 export default function OnlineCourses() {

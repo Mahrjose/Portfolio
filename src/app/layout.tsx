@@ -6,7 +6,7 @@ import { ThemeProvider } from '@/components/layout/theme-provider';
 import { Navigation } from '@/components/layout/navigation';
 import { Footer } from '@/components/layout/footer';
 import dynamic from 'next/dynamic';
-import { meta } from '@/lib/data';
+import { meta } from '@/lib/data/data';
 import SEO from '../../seo.config';
 
 const DefaultSeo = dynamic(() => import('next-seo').then(mod => mod.DefaultSeo), { ssr: false });
