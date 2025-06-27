@@ -37,7 +37,7 @@ export default function PublicationsSection() {
             Publications & Papers
           </h2>
           <p className="text-small text-muted-foreground">
-            Early research contributions and academic work
+            Research contributions and academic work
           </p>
         </div>
       </div>
@@ -114,16 +114,26 @@ export default function PublicationsSection() {
                 </CardHeader>
 
                 <CardContent>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                    {pub.abstract}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {pub.keywords.map((kw) => (
-                      <Badge key={kw} variant="outline" className="text-xs">
-                        {kw}
-                      </Badge>
-                    ))}
+                  <div className="mb-3">
+                    <p className="text-sm font-medium mb-1">Abstract:</p>
+                    <p className="text-sm text-justify text-muted-foreground leading-relaxed">
+                      {pub.abstract}
+                    </p>
                   </div>
+
+                  {pub.keywords.length > 0 && (
+                    <div className="mt-7 flex flex-wrap gap-2">
+                      {pub.keywords.map((kw) => (
+                        <Badge
+                          key={kw}
+                          variant="secondary"
+                          className="text-xs rounded bg-muted text-foreground"
+                        >
+                          {kw}
+                        </Badge>
+                      ))}
+                    </div>
+                  )}
 
                   <div className="sm:hidden flex justify-end">
                     <Button
