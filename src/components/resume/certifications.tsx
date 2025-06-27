@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Award, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { portfolioData } from "@/lib/data";
+import { portfolioData } from "@/lib/data/data";
 
 export function CertificationsCard() {
   const { resume } = portfolioData;

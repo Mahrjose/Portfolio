@@ -15,7 +15,7 @@ import {
   CheckCircle,
   ServerCog,
 } from "lucide-react";
-import { portfolioData } from "@/lib/data";
+import { portfolioData } from "@/lib/data/data";
 
 const iconMap: Record<string, React.ReactNode> = {
   "Programming Languages": <Code2 className="h-4 w-4 text-primary" />,
@@ -35,7 +35,7 @@ export function SkillsGrid() {
   const skills = resume.skills;
 
   return (
-    <Card className="card-hover">
+    <Card >
       <CardHeader>
         <CardTitle className="text-xl flex items-center gap-2">
           <Code className="h-5 w-5 text-primary" />

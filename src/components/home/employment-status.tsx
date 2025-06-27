@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 // import { FaLinkedin } from "react-icons/fa"; // Use when Lucide removes brand icons
-import { portfolioData } from "@/lib/data";
+import { portfolioData } from "@/lib/data/data";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -187,7 +187,7 @@ export function EmploymentStatus() {
                     <Button
                       variant="outline"
                       size="lg"
-                      className="hover-lift"
+                      className="hover"
                       asChild
                     >
                       <Link href="/contact">

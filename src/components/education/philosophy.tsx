@@ -12,7 +12,6 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 
 export default function LearningPhilosophy() {
   return (
@@ -33,32 +32,52 @@ export default function LearningPhilosophy() {
         {/* Card 1: Philosophy */}
         <Card className="card-hover motion-safe:animate-none motion-safe:sm:animate-fade-in-up">
           <CardContent className="p-6 space-y-4 text-sm text-muted-foreground leading-relaxed">
-            <h4 className="text-base font-semibold text-foreground">Build First. Always.</h4>
+            <h4 className="text-base font-semibold text-foreground">
+              Practice Drives Progress
+            </h4>
             <p>
-              I learn best by building. Instead of finishing an entire course first,
-              I prefer to solve real problems and learn by doing — figuring things out as I go.
+              My preferred way of learning is through hands-on practice. Instead
+              of endlessly reading or watching tutorials, I find it more
+              effective to learn from a tutorial or book, then immediately try
+              applying it. Even if I only make small progress or fail, the
+              attempt helps me understand better.
             </p>
             <p>
-              Whether it’s a small component or a full-stack prototype, building helps concepts stick.
-              When I hit a wall, I turn to Google, GPTs, or docs — but never before trying myself.
-            </p>
-            <p>
-              Notes, sketches, half-working scripts — these are how I refine my thinking.
-              I revisit and rebuild until it clicks.
+              I rely on external resources like books, documentation, AI tools,
+              or peers when I get stuck. Additionally, I prefer focusing on one
+              thing at a time, but realistically, that's not always possible.
+              That's a common challenge, as you can imagine!
             </p>
           </CardContent>
         </Card>
 
         {/* Card 2: Visual Helpers */}
         <Card className="card-hover motion-safe:animate-none motion-safe:sm:animate-fade-in-up">
-          <CardContent className="p-6 space-y-4 text-sm">
-            <h4 className="text-base font-semibold text-foreground">My Helpers Along the Way</h4>
-            <div className="space-y-3 text-muted-foreground">
-              <HelperItem icon={<Wrench className="text-purple-500" />} text="DIY first — code it before you Google it" />
-              <HelperItem icon={<Youtube className="text-red-500" />} text="Use YouTube or GPTs for quick context" />
-              <HelperItem icon={<Book className="text-blue-600" />} text="Dive into official docs for depth" />
-              <HelperItem icon={<Hammer className="text-yellow-600" />} text="Build small chunks to understand big systems" />
-              <HelperItem icon={<StickyNote className="text-green-600" />} text="Write notes to organize what I learn" />
+          <CardContent className="p-6 space-y-4 text-sm text-muted-foreground leading-relaxed">
+            <h4 className="text-base font-semibold text-foreground">
+              My Learning Resources
+            </h4>
+            <div className="space-y-3">
+              <HelperItem
+                icon={<Wrench className="text-purple-500" />}
+                text="Start independently to build confidence and uncover gaps"
+              />
+              <HelperItem
+                icon={<Youtube className="text-red-500" />}
+                text="YouTube or AI tools for quick, targeted insights when stuck"
+              />
+              <HelperItem
+                icon={<Book className="text-blue-600" />}
+                text="Books and documentation for in-depth, reliable understanding"
+              />
+              <HelperItem
+                icon={<Hammer className="text-yellow-600" />}
+                text="Peers for diverse perspectives and collaborative problem-solving"
+              />
+              <HelperItem
+                icon={<StickyNote className="text-green-600" />}
+                text="Focus on one task at a time, despite life’s inevitable chaos"
+              />
             </div>
           </CardContent>
         </Card>
@@ -68,13 +87,17 @@ export default function LearningPhilosophy() {
         <Button
           variant="ghost"
           size="lg"
-          className="hover-lift border border-purple-300 dark:border-purple-800 text-purple-700 dark:text-purple-300"
+          className="border border-purple-300 dark:border-purple-800 text-purple-700 dark:text-purple-300"
           asChild
         >
           <Link href="/projects">
             <Hammer className="h-4 w-4 mr-2" />
-            <span className="hidden md:inline">Explore Projects Where I Applied My Learning</span>
-            <span className="inline md:hidden">Explore My Projects & Works</span>
+            <span className="hidden md:inline">
+              Explore Projects Where I Applied My Learning
+            </span>
+            <span className="inline md:hidden">
+              Explore My Projects & Works
+            </span>
             <ArrowRight className="h-4 w-4 ml-2" />
           </Link>
         </Button>

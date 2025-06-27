@@ -1,19 +1,29 @@
-'use client';
+// temp solution for metadata withouth dynamic SEO
+export const metadata = {
+  title: 'Research | Mirza Mahrab Hossain',
+  description: 'Discover research projects, publications, and academic contributions from Mirza Mahrab Hossain.',
+};
 
-import dynamic from 'next/dynamic';
 import ResearchHeader from '@/components/research/research-header';
 import PublicationsSection from '@/components/research/publication';
 import ResearchProjects from '@/components/research/research-projects';
 import ResearchBlogs from '@/components/research/research-blogs';
 import CollaborationCTA from '@/components/research/collaboration';
-import { meta } from '@/lib/data';
+import { fetchBlogPosts } from "@/lib/fetch-blogs";
 
-const NextSeo = dynamic(() => import('next-seo').then(mod => mod.NextSeo), { ssr: false });
+//import dynamic from 'next/dynamic';
+//import { meta } from '@/lib/data';
+// const NextSeo = dynamic(() => import('next-seo').then(mod => mod.NextSeo), { ssr: false });
+
+const blogs = await fetchBlogPosts({
+  filterTag: "research-writeup",
+  limit: 6,
+});
 
 export default function ResearchPage() {
   return (
     <>
-      <NextSeo
+      {/* <NextSeo
         title="Research | Mirza Mahrab Hossain"
         description="Explore Mirza Mahrab Hossain's academic and AI research, including publications, projects, and insights into machine learning and artificial intelligence."
         canonical={`${meta.domain}/research`}
@@ -38,13 +48,14 @@ export default function ResearchPage() {
           handle: '@mahrjosee',
           site: '@mahrjosee',
         }}
-      />
+      /> */}
+
       <main className="min-h-screen pt-20 pb-12 page-transition">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
           <ResearchHeader />
           <PublicationsSection />
           <ResearchProjects />
-          <ResearchBlogs />
+          <ResearchBlogs blogs={blogs} />
           <CollaborationCTA />
         </div>
       </main>

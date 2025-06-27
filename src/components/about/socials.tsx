@@ -2,13 +2,14 @@ import { ReactElement } from "react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Book, Clapperboard, Tv, Gamepad2 } from "lucide-react";
+import { Book, Clapperboard, Tv, Gamepad2, Languages } from "lucide-react";
 
 const iconMap: Record<string, ReactElement> = {
   Goodreads: <Book className="h-3 w-3 mr-1" />,
   MyAnimeList: <Tv className="h-3 w-3 mr-1" />,
   Steam: <Gamepad2 className="h-3 w-3 mr-1" />,
   IMDB: <Clapperboard className="h-3 w-3 mr-1" />,
+  Duolingo: <Languages className="h-3 w-3 mr-1"/>
 };
 
 export default function SocialsGrid({ socials }: { socials: any[] }) {
@@ -27,7 +28,7 @@ export default function SocialsGrid({ socials }: { socials: any[] }) {
                 key={platform.name}
                 variant="outline"
                 size="sm"
-                className="text-xs h-8 hover-lift"
+                className="text-xs h-8"
                 asChild
               >
                 <a

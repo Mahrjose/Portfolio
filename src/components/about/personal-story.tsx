@@ -11,7 +11,7 @@ export default function MyStorySection({ story }: { story: string[] }) {
             My Story
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-4 text-justify">
           {story.map((paragraph, index) => (
             <p
               key={index}

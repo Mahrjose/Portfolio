@@ -5,7 +5,7 @@ import {
   CardDescription,
   CardContent,
 } from "@/components/ui/card";
-import { portfolioData } from "@/lib/data";
+import { portfolioData } from "@/lib/data/data";
 import { SocialIcons } from "@/components/layout/social-icons";
 
 export default function SocialLinksCard() {
@@ -24,6 +24,7 @@ export default function SocialLinksCard() {
             { name: "GitHub", url: contact.social.github },
             { name: "Facebook", url: contact.social.facebook },
             { name: "Twitter", url: contact.social.twitter },
+            { name: "Discord", url: contact.social.discord},
             { name: "Reddit", url: contact.social.reddit },
           ]}
           variant="outline"

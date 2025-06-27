@@ -1,19 +1,24 @@
-'use client';
+// temp solution for metadata withouth dynamic SEO
+export const metadata = {
+  title: 'Contact | Mirza Mahrab Hossain',
+  description: 'Get in touch with Mirza Mahrab Hossain for collaborations, job opportunities, or research discussions.',
+};
 
-import dynamic from 'next/dynamic';
+
 import ContactHeader from '@/components/contact/contact-header';
 import ContactInfoCard from '@/components/contact/info-card';
 import SocialLinksCard from '@/components/contact/socials';
 import ResponseTimeCard from '@/components/contact/response';
 import ContactFormCard from '@/components/contact/contact-form';
-import { meta } from '@/lib/data';
 
-const NextSeo = dynamic(() => import('next-seo').then(mod => mod.NextSeo), { ssr: false });
+// import dynamic from 'next/dynamic';
+// import { meta } from '@/lib/data';
+// const NextSeo = dynamic(() => import('next-seo').then(mod => mod.NextSeo), { ssr: false });
 
 export default function ContactPage() {
   return (
     <>
-      <NextSeo
+      {/* <NextSeo
         title="Contact | Mirza Mahrab Hossain"
         description="Reach out to Mirza Mahrab Hossain for collaboration, freelance work, AI research partnerships, or to connect. Quick response time and open to meaningful conversations."
         canonical={`${meta.domain}/contact`}
@@ -38,7 +43,7 @@ export default function ContactPage() {
           handle: '@mahrjosee',
           site: '@mahrjosee',
         }}
-      />
+      /> */}
       <main className="min-h-screen pt-20 pb-12 page-transition">
         <div className="section-padding">
           <div className="container-md">

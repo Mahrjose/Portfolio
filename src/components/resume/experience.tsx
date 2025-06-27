@@ -9,13 +9,13 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { portfolioData } from "@/lib/data";
+import { portfolioData } from "@/lib/data/data";
 
 export function ExperienceCard() {
   const { resume } = portfolioData;
 
   return (
-    <Card className="card-hover animate-fade-in-up stagger-3">
+    <Card >
       <CardHeader>
         <CardTitle className="text-xl flex items-center gap-2">
           <Briefcase className="h-6 w-6 text-primary" />
@@ -28,7 +28,7 @@ export function ExperienceCard() {
           {resume.experience.map((company, index) => (
             <div
               key={index}
-              className="relative pl-3 sm:pl-12 group transition-all duration-300 hover:scale-[1.01] hover:shadow-sm"
+              className="relative pl-3 sm:pl-12 group transition-all duration-300 hover-lift"
             >
               <div
                 className="absolute top-[130px] sm:top-[80px] bottom-0 left-[8px] w-px bg-border sm:left-[14px]"

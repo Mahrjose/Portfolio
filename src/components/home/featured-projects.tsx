@@ -22,7 +22,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { portfolioData } from "@/lib/data";
+import { portfolioData } from "@/lib/data/data";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 
@@ -107,6 +107,7 @@ export function FeaturedProjects() {
                   onClick={() => scroll("left")}
                   disabled={!canScrollLeft}
                   aria-label="Scroll left"
+                  className="cursor-pointer"
                 >
                   <ChevronLeft className="h-4 w-4" />
                 </Button>
@@ -116,6 +117,7 @@ export function FeaturedProjects() {
                   onClick={() => scroll("right")}
                   disabled={!canScrollRight}
                   aria-label="Scroll right"
+                  className="cursor-pointer"
                 >
                   <ChevronRight className="h-4 w-4" />
                 </Button>

@@ -1,69 +1,55 @@
 "use client";
 
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import {
-  Calendar,
   ArrowRight,
-  ExternalLink,
-  Clock,
+  Calendar,
   ChevronLeft,
   ChevronRight,
+  Clock,
+  FileText,
 } from "lucide-react";
-import { portfolioData } from "@/lib/data";
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useRef } from "react";
-
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useScrollReveal } from "@/hooks/use-scrollReveal";
 
-export function RecentPosts() {
-  const { blog } = portfolioData;
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { useScrollReveal } from "@/hooks/use-scrollReveal";
+import type { BlogPost } from "@/lib/fetch-blogs";
+
+export function RecentPosts({ blogPosts }: { blogPosts: BlogPost[] }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const { ref, isVisible } = useScrollReveal();
 
   const checkScrollButtons = () => {
-    if (scrollRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-      setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
-    }
+    if (!scrollRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+    setCanScrollLeft(scrollLeft > 10);
+    setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 10);
   };
 
-  const scrollLeft = () => {
-    if (scrollRef.current) {
-      const cardWidth =
-        scrollRef.current.querySelector(".blog-card")?.clientWidth || 0;
-      const gap = 16; // 1rem gap
-      scrollRef.current.scrollBy({
-        left: -(cardWidth * 3 + gap * 2),
-        behavior: "smooth",
-      });
-      setTimeout(checkScrollButtons, 300);
-    }
-  };
+  useEffect(() => {
+    checkScrollButtons();
+  }, [blogPosts]);
 
-  const scrollRight = () => {
-    if (scrollRef.current) {
-      const cardWidth =
-        scrollRef.current.querySelector(".blog-card")?.clientWidth || 0;
-      const gap = 16; // 1rem gap
-      scrollRef.current.scrollBy({
-        left: cardWidth * 3 + gap * 2,
-        behavior: "smooth",
-      });
-      setTimeout(checkScrollButtons, 300);
-    }
+  const scroll = (direction: "left" | "right") => {
+    if (!scrollRef.current) return;
+    const card = scrollRef.current.querySelector(".blog-card") as HTMLElement | null;
+    if (!card) return;
+
+    const cardWidth = card.clientWidth;
+    const gap = 16;
+
+    scrollRef.current.scrollBy({
+      left: direction === "left" ? -(cardWidth * 3 + gap * 2) : cardWidth * 3 + gap * 2,
+      behavior: "smooth",
+    });
+
+    setTimeout(checkScrollButtons, 300);
   };
 
   return (
@@ -81,7 +67,7 @@ export function RecentPosts() {
                 Latest Blog Posts
               </h2>
               <p className="text-muted-foreground text-lg">
-                Recent thoughts on AI and machine learning
+                My recent thoughts on various topics.
               </p>
             </div>
             <div className="flex items-center gap-4">
@@ -89,24 +75,24 @@ export function RecentPosts() {
                 <Button
                   variant="outline"
                   size="icon"
-                  onClick={scrollLeft}
+                  onClick={() => scroll("left")}
                   disabled={!canScrollLeft}
-                  className="h-10 w-10 hover-lift"
+                  className="h-10 w-10 cursor-pointer"
                 >
                   <ChevronLeft className="h-4 w-4" />
                 </Button>
                 <Button
                   variant="outline"
                   size="icon"
-                  onClick={scrollRight}
+                  onClick={() => scroll("right")}
                   disabled={!canScrollRight}
-                  className="h-10 w-10 hover-lift"
+                  className="h-10 w-10 cursor-pointer"
                 >
                   <ChevronRight className="h-4 w-4" />
                 </Button>
               </div>
-              <Button variant="outline" className="hover-lift" asChild>
-                <Link href="/blog">
+              <Button variant="outline" asChild>
+                <Link href="https://blog.mahrabhossain.me">
                   View All Posts
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </Link>
@@ -114,90 +100,92 @@ export function RecentPosts() {
             </div>
           </div>
 
-          {/* Horizontal scrolling container showing 3 cards */}
           <div className="relative overflow-hidden">
             <div
               ref={scrollRef}
-              className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory px-4 sm:px-0"
               onScroll={checkScrollButtons}
-              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+              className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory px-4 sm:px-0"
             >
-              {blog.map((post, index) => (
+              {blogPosts.map((post, index) => (
                 <Card
-                  key={post.id}
-                  className="blog-card group card-hover overflow-hidden shadow-lg hover:shadow-xl transition-shadow animate-slide-in-bottom snap-start flex flex-col flex-shrink-0 w-full sm:w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1rem)] h-auto"
-                  style={{
-                    animationDelay: `${index * 0.2}s`,
-                  }}
+                  key={post.slug || post.url}
+                  className="blog-card group card-hover overflow-hidden bg-background snap-start flex flex-col flex-shrink-0 w-full sm:w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1rem)] h-auto rounded-xl shadow-md hover:shadow-lg transition-shadow"
                 >
-                  <div className="relative h-48 flex-shrink-0 overflow-hidden rounded-t-md">
-                    <div className="absolute inset-0 overflow-hidden">
-                      <Image
-                        src={
-                          post.image ||
-                          "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=300&fit=crop"
-                        }
-                        alt={post.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    </div>
-
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <div className="flex items-center gap-4 text-xs text-white/90 mb-2">
-                        <div className="flex items-center gap-1">
-                          <Calendar className="h-3 w-3" />
-                          {post.date}
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Clock className="h-3 w-3" />
-                          {post.readTime}
-                        </div>
-                      </div>
-                    </div>
+                  <div className="relative h-48 flex-shrink-0 overflow-hidden">
+                    <Image
+                      src={
+                        post.coverImage?.url ||
+                        "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=300&fit=crop"
+                      }
+                      alt={post.title}
+                      fill
+                      unoptimized
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   </div>
 
-                  <CardHeader className="pb-4 flex-shrink-0">
+                  <CardHeader className="pb-3">
                     <CardTitle className="group-hover:text-primary transition-colors">
                       <a
                         href={post.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2"
+                        className="text-lg font-semibold line-clamp-2"
                       >
-                        <span className="text-lg line-clamp-2">
-                          {post.title}
-                        </span>
+                        {post.title}
                       </a>
                     </CardTitle>
-                    <CardDescription className="text-sm line-clamp-3">
-                      {post.excerpt}
-                    </CardDescription>
                   </CardHeader>
 
-                  <CardContent className="pt-0 flex-1 flex flex-col">
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {post.tags.slice(0, 3).map((tag) => (
-                        <Badge
-                          key={tag}
-                          variant="outline"
-                          className="text-xs badge-hover"
-                        >
-                          {tag}
-                        </Badge>
-                      ))}
+                  <CardContent className="pt-0 flex flex-col flex-1 justify-between">
+                    <p className="text-sm text-muted-foreground line-clamp-3 mb-3">
+                      {post.brief}
+                    </p>
+
+                    <div className="text-sm text-muted-foreground space-y-1 mb-3">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="h-4 w-4" />
+                        <time dateTime={post.publishedAt}>
+                          {new Date(post.publishedAt).toLocaleDateString(undefined, {
+                            month: "short",
+                            day: "numeric",
+                            year: "numeric",
+                          })}
+                        </time>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Clock className="h-4 w-4" />
+                        <span>{post.readTimeInMinutes} min read</span>
+                      </div>
                     </div>
 
-                    {/* Push content to bottom */}
-                    <div className="mt-auto pt-4 border-t text-right">
+                    {post.tags?.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {post.tags.slice(0, 6).map((tag, i) => {
+                          const tagLabel = typeof tag === "string" ? tag : tag.name;
+                          return (
+                            <Badge
+                              key={tagLabel + i}
+                              variant="secondary"
+                              className="text-xs rounded-sm"
+                            >
+                              {tagLabel}
+                            </Badge>
+                          );
+                        })}
+                      </div>
+                    )}
+
+                    <div className="flex justify-end">
                       <a
                         href={post.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-primary font-medium hover:underline"
+                        className="inline-flex items-center gap-2 rounded-md border px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-primary hover:border-primary"
                       >
-                        Read More →
+                        <FileText className="h-4 w-4" />
+                        Read Post
                       </a>
                     </div>
                   </CardContent>
