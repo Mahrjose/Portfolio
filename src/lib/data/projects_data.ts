@@ -16,13 +16,12 @@ export const projects = [
 
       language: "JavaScript",
       tech: ["JavaScript", "React.js", "Node.js", "Express.js", "Socket.io", "MongoDB", "Chakra UI"],
-      
-      description:
-        "A full-stack real-time chat application built with the MERN stack and Socket.io, \
-        designed for open-source collaboration. Hive supports secure user authentication, \
-        responsive layouts, and dynamic group messaging — all wrapped in a clean UI using \
-        Chakra UI. Ideal for small communities looking for a self-hosted messaging solution."
 
+      description:
+        "Hive is a full stack, real time chat application using the MERN stack and Socket.io, \
+        designed for seamless communication. Hive supports secure user authentication, \
+        responsive layouts, and dynamic group messaging, all within a clean UI using \
+        Chakra UI. Ideal for small communities looking for a self hosted messaging solution."
     },
     {
       id: 2,
@@ -37,19 +36,17 @@ export const projects = [
 
       title: "Orb Invader - A 2D OpenGL Shooter Game",
       github: "https://github.com/Mahrjose/Orb-Invaders",
-      demo: "", 
+      demo: "",
 
       language: "C++",
       tech: ["C++", "OpenGL", "GLFW", "GLSL", "CMake", "Midpoint Algorithms"],
 
       description:
         "A 2D shooter game developed in C++ and OpenGL for a computer graphics course. \
-        The game features arcade-style mechanics, including projectile-based combat, \
-        collision detection, and real-time scoring. All visuals are rendered using midpoint \
-        line and circle algorithms with GL_POINTS, showcasing low-level control over graphics \
-        pipeline and custom shader integration."
-
-
+        It features arcade style mechanics like projectile combat, collision detection, \
+        and real time scoring. All visuals are rendered using fundamental graphics algorithms \
+        with GL_POINTS, demonstrating low level control over the graphics pipeline and custom \
+        shader integration."
     },
     {
       id: 3,
@@ -70,12 +67,10 @@ export const projects = [
       tech: ["C++", "OpenGL", "GLEW", "GLFW", "GL_POINTS"],
 
       description:
-        "A Tetris-inspired puzzle game developed with legacy OpenGL and rendered entirely \
-        using GL_POINTS. Built under a tight academic deadline, Tetrix implements classic \
-        falling-block mechanics, real-time controls, line-clearing logic, and randomized \
-        power-ups and traps — all without relying on modern shader pipelines. It demonstrates \
-        deep control over graphical rendering in a minimalist setup."
-
+        "Tetrix is a Tetris inspired puzzle game that was built with legacy OpenGL, where everything \
+        on screen is drawn using just GL_POINTS. This was a project for my university's computer \
+        graphics course. The game has classic falling tetromino mechanics, real time controls, \
+        line clearing, and even random power ups and traps."
     },
     {
       id: 4,
@@ -98,10 +93,9 @@ export const projects = [
       description:
         "A machine learning-based intrusion detection system (NIDS) that analyzes network \
         traffic using supervised classifiers like Random Forest, SVM, KNN, and Logistic \
-        Regression. Built for a university AI course, the system uses the NSL-KDD dataset \
+        Regression. Built for my university AI course, the system uses the NSL-KDD dataset \
         to detect anomalies and evaluates performance using precision, recall, and F1 scores. \
         Includes preprocessing, feature engineering, and model comparison for practical insight."
-
     },
     {
       id: 5,
@@ -142,6 +136,7 @@ export const projects = [
       github: "https://github.com/Mahrjose/nyxdots",
       demo: "",
 
+      language: "Bash",
       tech: ["Bash", "Arch Linux", "Hyprland", "Wayland", "Waybar", "GRUB", "Shell Scripting"],
 
       description:
@@ -150,5 +145,27 @@ export const projects = [
         themes, dynamic modes, and productivity tools to create a personalized and minimalist \
         workflow. It reflects both aesthetic customization and practical efficiency, with \
         attention to scripting, startup automation, and window management."
+    },
+    {
+      id: 7,
+      feature: {status: false, rank: 0},
+      status: "Completed",
+      type: "Web Development",
+
+      date: "June, 2025",
+      start: "03-06-2025",
+      end: "27-06-2025",
+      collabType: "Solo",
+
+      title: "Personal Portfolio Website",
+      github: "https://github.com/Mahrjose/Portfolio",
+      demo: "https://mahrabhossain.me",
+
+      language: "TypeScript",
+      tech: ["TypeScript", "Next.js", "React.js", "Tailwind CSS"],
+
+      description:
+        "A modern, responsive portfolio, built to showcase projects and experience. \
+        You're here now!!"
     },
 ]
