@@ -1,6 +1,7 @@
 'use client';
 
 import './globals.css';
+import { Analytics } from "@vercel/analytics/next"
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/layout/theme-provider';
 import { Navigation } from '@/components/layout/navigation';
@@ -63,6 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main className="min-h-screen">{children}</main>
           <Footer />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
