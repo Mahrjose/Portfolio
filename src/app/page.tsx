@@ -62,7 +62,6 @@ export const metadata = {
       },
     ],
   },
-  themeColor: '#0f172a',
   robots: {
     index: true,
     follow: true,
