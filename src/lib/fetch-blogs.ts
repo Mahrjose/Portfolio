@@ -1,5 +1,5 @@
 import dotenv from 'dotenv'
-dotenv.config()
+// dotenv.config()
 
 const PUBLICATION_ID = process.env.HASHNODE_PUBLICATION_ID
 const HASHNODE_API = "https://gql.hashnode.com/";
@@ -24,7 +24,6 @@ type FetchBlogOptions = {
 
 /**
  * Fetches blog posts from Hashnode with optional filtering by tag and limit.
- * This version uses SSR only — no caching.
  */
 export async function fetchBlogPosts({
   limit = 6,
@@ -60,7 +59,8 @@ export async function fetchBlogPosts({
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ query, variables: { id: PUBLICATION_ID } }),
-      cache: "no-store" // SSR
+      cache: "force-cache",
+      next: { revalidate: 600 },
     });
 
     if (!response.ok) {
