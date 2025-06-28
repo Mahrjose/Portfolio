@@ -18,51 +18,79 @@ type FetchBlogOptions = {
   filterTag?: string;
 };
 
-/**
- * Fetches blog posts from Hashnode using host-based query.
- * Always fetches fresh data (SSR). ISR config is commented out for future use.
- */
-export async function fetchBlogPosts({
-  limit = 6,
-  filterTag,
-}: FetchBlogOptions = {}): Promise<BlogPost[]> {
-  const query = `
-    query Publication {
-      publication(host: "blog.mahrabhossain.me") {
-        posts(first: 20) {
-          edges {
-            node {
-              title
-              brief
-              slug
+// Define alternate GraphQL queries to rotate and break CDN cache
+const queries = [
+  `
+  query PublicationA {
+    publication(host: "blog.mahrabhossain.me") {
+      posts(first: 20) {
+        edges {
+          node {
+            title
+            brief
+            slug
+            url
+            readTimeInMinutes
+            publishedAt
+            tags {
+              name
+            }
+            coverImage {
               url
-              readTimeInMinutes
-              publishedAt
-              tags {
-                name
-              }
-              coverImage {
-                url
-              }
             }
           }
         }
       }
     }
-  `;
+  }
+  `,
+  `
+  query PublicationB {
+    publication(host: "blog.mahrabhossain.me") {
+      title
+      posts(first: 20) {
+        edges {
+          node {
+            title
+            brief
+            slug
+            url
+            readTimeInMinutes
+            publishedAt
+            tags {
+              name
+            }
+            coverImage {
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+  `,
+];
+
+// Local counter to rotate queries (will reset between builds)
+let lastUsedIndex = 0;
+
+/**
+ * Fetches blog posts from Hashnode using a rotating query to bypass CDN cache.
+ * Fully compatible with ISR/static generation on Vercel.
+ */
+export async function fetchBlogPosts({
+  limit = 6,
+  filterTag,
+}: FetchBlogOptions = {}): Promise<BlogPost[]> {
+  const query = queries[lastUsedIndex];
+  lastUsedIndex = (lastUsedIndex + 1) % queries.length;
 
   try {
     const response = await fetch(HASHNODE_API, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ query }),
-
-      // SSR (always fetch fresh)
-      cache: "no-store",
-
-      // ISR (enable later if needed)
-      // cache: "force-cache",
-      next: { revalidate: 600 },
+      next: { revalidate: 600 }, //  ISR
     });
 
     if (!response.ok) {
@@ -81,12 +109,6 @@ export async function fetchBlogPosts({
           post.tags.some(tag => tag.name.toLowerCase() === filterTag.toLowerCase())
         )
       : posts;
-
-    // console.log(`[fetchBlogPosts] Retrieved ${filtered.length} posts`);
-    // filtered.forEach((post, index) => {
-    //   console.log(`- [${index + 1}] ${post.title}`);
-    //   console.log(`   Tags: ${post.tags.map(tag => tag.name).join(", ")}`);
-    // });
 
     return filtered.slice(0, limit);
   } catch (error) {
