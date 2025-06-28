@@ -61,7 +61,7 @@ export async function fetchBlogPosts({
       // cache: "no-store",
 
       // ISR (enable later if needed)
-      cache: "force-cache",
+      // cache: "force-cache",
       next: { revalidate: 600 },
     });
 
