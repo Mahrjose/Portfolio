@@ -163,7 +163,7 @@ export default function ResearchBlogs({ blogs }: { blogs: BlogPost[] }) {
                 <div className="mt-auto">
                   {blog.tags?.length > 0 && (
                     <div className="flex flex-wrap gap-2 mb-4">
-                      {blog.tags.slice(0, 3).map((tag, i) => {
+                      {blog.tags.slice(0, 6).map((tag, i) => {
                         const tagLabel = typeof tag === 'string' ? tag : tag.name;
                         return (
                           <Badge
