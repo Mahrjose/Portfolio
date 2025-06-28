@@ -1,7 +1,3 @@
-import dotenv from 'dotenv'
-// dotenv.config()
-
-const PUBLICATION_ID = process.env.HASHNODE_PUBLICATION_ID
 const HASHNODE_API = "https://gql.hashnode.com/";
 
 export type BlogPost = {
@@ -23,16 +19,17 @@ type FetchBlogOptions = {
 };
 
 /**
- * Fetches blog posts from Hashnode with optional filtering by tag and limit.
+ * Fetches blog posts from Hashnode using host-based query.
+ * Always fetches fresh data (SSR). ISR config is commented out for future use.
  */
 export async function fetchBlogPosts({
   limit = 6,
   filterTag,
 }: FetchBlogOptions = {}): Promise<BlogPost[]> {
   const query = `
-    query GetPosts($id: ObjectId!) {
-      publication(id: $id) {
-        posts(first: 10) {
+    query Publication {
+      publication(host: "blog.mahrabhossain.me") {
+        posts(first: 20) {
           edges {
             node {
               title
@@ -58,9 +55,14 @@ export async function fetchBlogPosts({
     const response = await fetch(HASHNODE_API, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ query, variables: { id: PUBLICATION_ID } }),
-      cache: "force-cache",
-      next: { revalidate: 600 },
+      body: JSON.stringify({ query }),
+
+      // SSR (always fetch fresh)
+      cache: "no-store",
+
+      // ISR (enable later if needed)
+      // cache: "force-cache",
+      // next: { revalidate: 600 },
     });
 
     if (!response.ok) {
@@ -82,7 +84,8 @@ export async function fetchBlogPosts({
 
     // console.log(`[fetchBlogPosts] Retrieved ${filtered.length} posts`);
     // filtered.forEach((post, index) => {
-    //   console.log(`- [${index + 1}] ${post.title} (slug: ${post.slug})`);
+    //   console.log(`- [${index + 1}] ${post.title}`);
+    //   console.log(`   Tags: ${post.tags.map(tag => tag.name).join(", ")}`);
     // });
 
     return filtered.slice(0, limit);
