@@ -58,11 +58,11 @@ export async function fetchBlogPosts({
       body: JSON.stringify({ query }),
 
       // SSR (always fetch fresh)
-      cache: "no-store",
+      // cache: "no-store",
 
       // ISR (enable later if needed)
-      // cache: "force-cache",
-      // next: { revalidate: 600 },
+      cache: "force-cache",
+      next: { revalidate: 600 },
     });
 
     if (!response.ok) {
