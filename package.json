@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "postbuild": "next-sitemap --config ./sitemap.config.ts",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint"
   },
