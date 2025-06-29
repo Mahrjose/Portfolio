@@ -32,7 +32,7 @@ export default [
       'react-hooks': reactHooksPlugin,
     },
     rules: {
-      // ✅ Set rules manually, don't spread from legacy configs
+      // Set rules manually, don't spread from legacy configs
       '@typescript-eslint/no-unused-vars': 'warn',
       'react/jsx-key': 'warn',
       'react/prop-types': 'off',

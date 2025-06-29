@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   siteUrl: "https://mahrabhossain.me",
   generateRobotsTxt: true,
   sitemapSize: 50,
