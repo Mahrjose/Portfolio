@@ -5,15 +5,12 @@ import nextPlugin from '@next/eslint-plugin-next';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 
-/** @type {import("eslint").Linter.FlatConfig[]} */
 export default [
   js.configs.recommended,
   {
+    ...nextPlugin.configs['core-web-vitals'],
     plugins: {
       '@next/next': nextPlugin,
-    },
-    rules: {
-      ...nextPlugin.configs['core-web-vitals'].rules,
     },
   },
   {
@@ -32,14 +29,14 @@ export default [
       'react-hooks': reactHooksPlugin,
     },
     rules: {
-      // Set rules manually, don't spread from legacy configs
+      ...typescriptPlugin.configs.recommended.rules,
+      ...reactPlugin.configs.recommended.rules,
+      ...reactHooksPlugin.configs.recommended.rules,
+      '@next/next/no-img-element': 'off',
       '@typescript-eslint/no-unused-vars': 'warn',
       'react/jsx-key': 'warn',
       'react/prop-types': 'off',
       'react/react-in-jsx-scope': 'off',
-      'react-hooks/rules-of-hooks': 'error',
-      'react-hooks/exhaustive-deps': 'warn',
-      '@next/next/no-img-element': 'off',
     },
     settings: {
       react: {
