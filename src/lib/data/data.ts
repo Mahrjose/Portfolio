@@ -162,8 +162,8 @@ export const portfolioData = {
 
     current: {
       company: "Pipeline Inc",
-      position: "AI Engineer Intern",
-      startDate: "February 2025",
+      position: "Junior AI Engineer",
+      startDate: "August 2025",
       location: "Dhaka, Bangladesh",
       type: "Hybrid",
       company_website: "https://ppln.co/en",
