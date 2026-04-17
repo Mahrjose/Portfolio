@@ -3,8 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Mail, MapPin, Cpu, Book, Heart, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { SocialIcons } from "@/components/layout/social-icons";
+import type { HeroData } from "@/lib/types";
 
-export default function ProfileSidebarCard({ hero }: { hero: any }) {
+export default function ProfileSidebarCard({ hero }: { hero: HeroData }) {
   return (
     <Card className="sticky top-24" aria-label="Profile sidebar">
       <CardHeader className="text-center">

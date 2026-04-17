@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { portfolioData } from "@/lib/data/data";
 
 export default function CollaborationCTA() {
   const isMobile = useIsMobile();
@@ -26,10 +27,7 @@ export default function CollaborationCTA() {
             Interested in Collaboration?
           </h3>
           <p className="text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
-            As a novice researcher, I'm eager to learn from experienced
-            researchers and collaborate on interesting projects. Whether you're
-            looking for a research assistant, have a project idea, or want to
-            mentor someone new to the field, I'd love to connect!
+            {portfolioData.research.collaborationMessage}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center">
             <Button

@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { type ReactElement } from "react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -12,7 +12,9 @@ const iconMap: Record<string, ReactElement> = {
   Duolingo: <Languages className="h-3 w-3 mr-1"/>
 };
 
-export default function SocialsGrid({ socials }: { socials: any[] }) {
+import type { Platform } from "@/lib/types";
+
+export default function SocialsGrid({ socials }: { socials: Platform[] }) {
   return (
     <section aria-labelledby="socials-heading">
       <Card className="card-hover animate-fade-in-up stagger-6">

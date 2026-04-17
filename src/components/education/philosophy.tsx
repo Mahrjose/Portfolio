@@ -8,12 +8,32 @@ import {
   Hammer,
   StickyNote,
   ArrowRight,
+  type LucideIcon,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { portfolioData } from "@/lib/data/data";
+
+const iconMap: Record<string, LucideIcon> = {
+  Wrench,
+  Youtube,
+  Book,
+  Hammer,
+  StickyNote,
+};
+
+const iconColors: Record<string, string> = {
+  Wrench: "text-purple-500",
+  Youtube: "text-red-500",
+  Book: "text-blue-600",
+  Hammer: "text-yellow-600",
+  StickyNote: "text-green-600",
+};
 
 export default function LearningPhilosophy() {
+  const { learningPhilosophy } = portfolioData.education;
+
   return (
     <section className="animate-fade-in-up stagger-8" id="learning-philosophy">
       <div className="flex items-center gap-3 mb-8">
@@ -29,55 +49,34 @@ export default function LearningPhilosophy() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-        {/* Card 1: Philosophy */}
         <Card className="card-hover motion-safe:animate-none motion-safe:sm:animate-fade-in-up">
           <CardContent className="p-6 space-y-4 text-sm text-muted-foreground leading-relaxed">
             <h4 className="text-base font-semibold text-foreground">
-              Practice Drives Progress
+              {learningPhilosophy.practiceTitle}
             </h4>
-            <p>
-              My preferred way of learning is through hands-on practice. Instead
-              of endlessly reading or watching tutorials, I find it more
-              effective to learn from a tutorial or book, then immediately try
-              applying it. Even if I only make small progress or fail, the
-              attempt helps me understand better.
-            </p>
-            <p>
-              I rely on external resources like books, documentation, AI tools,
-              or peers when I get stuck. Additionally, I prefer focusing on one
-              thing at a time, but realistically, that's not always possible.
-              That's a common challenge, as you can imagine!
-            </p>
+            {learningPhilosophy.practiceBody.map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
           </CardContent>
         </Card>
 
-        {/* Card 2: Visual Helpers */}
         <Card className="card-hover motion-safe:animate-none motion-safe:sm:animate-fade-in-up">
           <CardContent className="p-6 space-y-4 text-sm text-muted-foreground leading-relaxed">
             <h4 className="text-base font-semibold text-foreground">
-              My Learning Resources
+              {learningPhilosophy.resourcesTitle}
             </h4>
             <div className="space-y-3">
-              <HelperItem
-                icon={<Wrench className="text-purple-500" />}
-                text="Start independently to build confidence and uncover gaps"
-              />
-              <HelperItem
-                icon={<Youtube className="text-red-500" />}
-                text="YouTube or AI tools for quick, targeted insights when stuck"
-              />
-              <HelperItem
-                icon={<Book className="text-blue-600" />}
-                text="Books and documentation for in-depth, reliable understanding"
-              />
-              <HelperItem
-                icon={<Hammer className="text-yellow-600" />}
-                text="Peers for diverse perspectives and collaborative problem-solving"
-              />
-              <HelperItem
-                icon={<StickyNote className="text-green-600" />}
-                text="Focus on one task at a time, despite life’s inevitable chaos"
-              />
+              {learningPhilosophy.resources.map(({ icon, text }) => {
+                const Icon = iconMap[icon];
+                return (
+                  <div key={icon} className="flex items-center gap-3">
+                    <span className="h-5 w-5">
+                      {Icon && <Icon className={iconColors[icon]} />}
+                    </span>
+                    <span>{text}</span>
+                  </div>
+                );
+              })}
             </div>
           </CardContent>
         </Card>
@@ -103,14 +102,5 @@ export default function LearningPhilosophy() {
         </Button>
       </div>
     </section>
-  );
-}
-
-function HelperItem({ icon, text }: { icon: React.ReactNode; text: string }) {
-  return (
-    <div className="flex items-center gap-3">
-      <span className="h-5 w-5">{icon}</span>
-      <span>{text}</span>
-    </div>
   );
 }

@@ -13,7 +13,6 @@ import {
   Linkedin,
 } from "lucide-react";
 
-// import { FaLinkedin } from "react-icons/fa"; // Use when Lucide removes brand icons
 import { portfolioData } from "@/lib/data/data";
 import Link from "next/link";
 import Image from "next/image";

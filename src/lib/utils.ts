@@ -6,6 +6,17 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+export function getStatusColor(status: string): string {
+  switch (status) {
+    case "Completed":
+      return "bg-emerald-200 text-emerald-800 dark:bg-emerald-600 dark:text-emerald-100";
+    case "In Progress":
+      return "bg-blue-200 text-blue-800 dark:bg-blue-600 dark:text-blue-100";
+    default:
+      return "bg-amber-200 text-amber-800 dark:bg-amber-600 dark:text-amber-100";
+  }
+}
+
 export function getDuration(start?: string, end?: string) {
   if (!start) return "Unknown";
 

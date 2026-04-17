@@ -1,4 +1,5 @@
-import { ReactElement } from "react";
+import { type ReactElement } from "react";
+import type { Interest } from "@/lib/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Book,
@@ -27,7 +28,7 @@ const iconMap: Record<string, ReactElement> = {
   "Linux Ricing": <SquareTerminal className="h-4 w-4 text-primary" />,
 };
 
-export default function HobbiesGrid({ interests }: { interests: any[] }) {
+export default function HobbiesGrid({ interests }: { interests: Interest[] }) {
   return (
     <section aria-labelledby="hobbies-heading">
       <Card className="card-hover animate-fade-in-up stagger-5">
