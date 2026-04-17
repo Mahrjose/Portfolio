@@ -21,7 +21,7 @@ import { portfolioData } from "@/lib/data/data";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useScrollReveal } from "@/hooks/use-scrollReveal";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { TechStackBadges } from "@/components/projects/tech-stack-badges";
 import { ProjectFooter } from "@/components/projects/project-footer";
 

@@ -1,0 +1,80 @@
+# Mirza Mahrab Hossain — Full Profile
+
+> AI Engineer & Software Developer | Dhaka, Bangladesh
+
+## Identity
+
+- Full name: Mirza Mahrab Hossain
+- Job title: Junior AI Engineer (current), AI Engineer & Software Developer
+- Location: Dhaka, Bangladesh
+- Website: https://mahrabhossain.me
+- Blog: https://blog.mahrabhossain.me
+- Email: mirzamahrabhossain.com
+
+## Current Employment
+
+- Company: Pipeline Inc (https://ppln.co/en)
+- Role: Junior AI Engineer
+- Start: August 2025
+- Type: Hybrid, Dhaka, Bangladesh
+- Work: Building modular Custom AI agent frameworks, fine-tuning models, integrating APIs, scripting and refactoring AI tools
+
+## Technical Skills
+
+- **AI/ML**: Large Language Models, AI Agents, Voice AI, fine-tuning, RAG, prompt engineering
+- **Cybersecurity**: CTF competitions (picoCTF), penetration testing concepts, security research
+- **Languages**: Python, JavaScript/TypeScript, C/C++, Bash
+- **Web**: Next.js, React, Node.js, REST APIs
+- **DevOps**: Docker, Linux, CI/CD, Git
+- **Databases**: SQL, NoSQL
+
+## Education
+
+- Institution: BRAC University, Dhaka, Bangladesh
+- Degree: B.Sc. in Computer Science and Engineering
+
+## Research Interests
+
+- Natural Language Processing
+- Voice-based AI systems
+- Cybersecurity and CTF
+- Machine Learning applications
+
+## Social Profiles
+
+- GitHub: https://github.com/Mahrjose
+- LinkedIn: https://www.linkedin.com/in/mirzamahrabhossain/
+- Twitter/X: https://x.com/mahrjosee
+- Facebook: https://www.facebook.com/mirzamahrabhossain/
+- Reddit: https://www.reddit.com/user/Mahrjose/
+- Discord: https://discordapp.com/users/606866601907716218
+- LeetCode: https://leetcode.com/u/Mahrjose/
+- Codeforces: https://codeforces.com/profile/Mahrjose
+- HackerRank: https://www.hackerrank.com/profile/Mahrjose
+- HackerEarth: https://www.hackerearth.com/@Mahrjose
+- picoCTF: https://play.picoctf.org/users/Mahrjose
+
+## Personal Interests
+
+Gaming (single-player story-driven), travel, reading, anime (500+ series), football, Linux ricing, music
+
+## Philosophy
+
+"When you gaze long into an abyss, the abyss gazes back into you" — Nietzsche
+
+Core principles: Comfort is underrated. Curiosity over certainty. Hard work matters but luck is a factor. You don't have to be deep all the time.
+
+## Site Structure
+
+- https://mahrabhossain.me/ — Home: hero, featured projects, recent blog posts, employment status
+- https://mahrabhossain.me/about — Personal story, highlights, interests, languages, philosophy
+- https://mahrabhossain.me/projects — Full project portfolio with filtering and search
+- https://mahrabhossain.me/resume — Professional resume: experience, skills, certifications, achievements
+- https://mahrabhossain.me/education — BRAC University degree, online courses, learning philosophy
+- https://mahrabhossain.me/research — Research projects, publications, collaboration CTA
+- https://mahrabhossain.me/contact — Contact info and form
+- https://blog.mahrabhossain.me — Technical blog (Hashnode)
+
+## Availability
+
+Currently employed full-time. Open to research collaborations, interesting projects, and speaking opportunities.

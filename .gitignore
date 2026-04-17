@@ -12,8 +12,11 @@
 
 # testing
 /coverage
-/playwright-report
-/test-results
+/tests/playwright-report
+/tests/test-results
+
+# generated sitemaps (rebuilt on every deploy)
+/public/sitemap*.xml
 
 # next.js
 /.next/
@@ -41,3 +44,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# legacy test output locations
+/playwright-report
+/test-results

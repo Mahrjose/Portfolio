@@ -16,7 +16,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { useScrollReveal } from "@/hooks/use-scrollReveal";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import type { BlogPost } from "@/lib/fetch-blogs";
 
 export function RecentPosts({ blogPosts }: { blogPosts: BlogPost[] }) {
