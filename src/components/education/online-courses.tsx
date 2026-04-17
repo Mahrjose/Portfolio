@@ -113,16 +113,6 @@ export default function OnlineCourses() {
   );
 }
 
-// Sub-components
-function CourseInfo({ icon, value }: { icon: React.ReactNode; value: string }) {
-  return (
-    <div className="flex items-center gap-1 text-muted-foreground">
-      <span className="h-3 w-3 text-primary">{icon}</span>
-      <span>{value}</span>
-    </div>
-  );
-}
-
 function LinkButton({ href, label }: { href: string; label: string }) {
   return (
     <Button variant="outline" size="sm" className="w-full text-xs h-7" asChild>
