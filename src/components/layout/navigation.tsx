@@ -6,17 +6,7 @@ import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/layout/theme-toggle"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
-
-const navItems = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Blog", href: "https://blog.mahrabhossain.me" },
-  { name: "Projects", href: "/projects" },
-  { name: "Resume", href: "/resume" },
-  { name: "Education", href: "/education" },
-  { name: "Research", href: "/research" },
-  { name: "Contact", href: "/contact" },
-]
+import { navItems } from "@/lib/data/data"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)

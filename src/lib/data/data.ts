@@ -33,6 +33,27 @@ export const meta = {
   }
 }
 
+export const navItems = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Blog", href: "https://blog.mahrabhossain.me", external: true },
+  { name: "Projects", href: "/projects" },
+  { name: "Resume", href: "/resume" },
+  { name: "Education", href: "/education" },
+  { name: "Research", href: "/research" },
+  { name: "Contact", href: "/contact" },
+];
+
+export const specialties = [
+  "Machine Learning",
+  "AI Applications",
+  "Cybersecurity",
+  "DevOps & Deployment",
+  "Software Engineering",
+  "Systems Design",
+  "Product Management",
+];
+
 export const portfolioData = {
   hero: {
     name: meta.name,
