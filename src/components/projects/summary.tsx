@@ -1,18 +1,13 @@
 "use client";
 
-import { CheckCircle2, Clock as ProgressClock, Pause, Layers, Code2, Star } from "lucide-react";
-import StatCard from "./statcard";
-import Link from "next/link";
-
+import { CheckCircle2, Clock as ProgressClock, Pause } from "lucide-react";
 type Props = {
   statusCount: Record<string, number>;
   totalProjects: number;
   topLanguage: string;
   averageTime: string;
-  topProject: { name: string; link: string };
   activeStatus: string | null;
   setActiveStatus: (status: string | null) => void;
-  onTopLanguageClick: () => void;
 };
 
 export default function ProjectsSummary({
@@ -20,10 +15,8 @@ export default function ProjectsSummary({
   totalProjects,
   topLanguage,
   averageTime,
-  topProject,
   activeStatus,
   setActiveStatus,
-  onTopLanguageClick,
 }: Props) {
   const counters = [
     {
@@ -54,46 +47,6 @@ export default function ProjectsSummary({
 
   return (
     <section className="mb-10 w-full">
-
-      {/* Desktop full StatCards */}
-      {/* <div className="hidden sm:grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
-        <div className="w-full">
-          <StatCard
-            title="Total Projects"
-            value={totalProjects}
-            icon={Layers}
-            gradient="bg-gradient-to-br from-purple-100 via-indigo-200 to-indigo-300 dark:from-purple-700 dark:via-indigo-800 dark:to-indigo-900"
-          />
-        </div>
-
-        <button className="block w-full text-left cursor-pointer" onClick={onTopLanguageClick}>
-          <StatCard
-            title="Top Language"
-            value={topLanguage}
-            icon={Code2}
-            gradient="bg-gradient-to-br from-cyan-100 via-sky-200 to-blue-300 dark:from-cyan-700 dark:via-sky-800 dark:to-blue-900"
-          />
-        </button>
-
-        <Link href="https://wakatime.com/@Mahrjose" target="_blank" className="block w-full cursor-pointer">
-          <StatCard
-            title="Avg Coding Time"
-            value={averageTime}
-            subtitle="Last 7 Days"
-            icon={ProgressClock}
-            gradient="bg-gradient-to-br from-amber-100 via-orange-200 to-rose-300 dark:from-amber-600 dark:via-orange-700 dark:to-rose-800"
-          />
-        </Link>
-
-        <Link href={topProject.link} target="_blank" className="block w-full cursor-pointer">
-          <StatCard
-            title="Top Project"
-            value={topProject.name}
-            icon={Star}
-            gradient="bg-gradient-to-br from-rose-100 via-pink-200 to-red-300 dark:from-rose-700 dark:via-pink-700 dark:to-red-800"
-          />
-        </Link>
-      </div> */}
 
       {/* Mobile single-line 3-stat design */}
       <div className="sm:hidden grid grid-cols-3 gap-2 mb-4 w-full">

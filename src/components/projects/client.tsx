@@ -7,38 +7,19 @@ import ProjectsSidebar from "./sidebar";
 import ProjectsFilters from "./filters";
 import ProjectCard from "./project-card";
 import ProjectsPagination from "./pagination";
+import type { Project } from "@/lib/types";
 
 const ITEMS_PER_PAGE = 8;
-
-type Project = {
-  id: string | number;
-  title: string;
-  date: string;
-  description: string;
-  tech: string[];
-  collabType: string;
-  status: string;
-  start?: string;
-  end?: string;
-  github?: string;
-  demo?: string;
-  type?: string;
-  language?: string;
-};
 
 type Props = {
   portfolioData: {
     projects: Project[];
     wakatime: { last7days: string };
-    topProject : {
-      name : string,
-      link : string
-    }
   };
 };
 
 export default function ProjectsClient({ portfolioData }: Props) {
-  const { projects, wakatime, topProject } = portfolioData;
+  const { projects, wakatime } = portfolioData;
 
   const [activeType, setActiveType] = useState("All");
   const [search, setSearch] = useState("");
@@ -158,21 +139,10 @@ export default function ProjectsClient({ portfolioData }: Props) {
         <ProjectsSummary
           statusCount={statusCount}
           totalProjects={projects.length}
-          topProject={topProject}
           topLanguage={topLanguage}
           averageTime={wakatime?.last7days || "40h 07m"}
           activeStatus={activeStatus}
           setActiveStatus={setActiveStatus}
-          onTopLanguageClick={() => {
-            if (activeLanguage === topLanguage) {
-              setActiveLanguage(null);
-              setSortOrder("newest");
-            } else {
-              setActiveLanguage(topLanguage);
-              setSortOrder("az");
-            }
-            setCurrentPage(1);
-          }}
         />
 
         <div className="flex flex-col lg:flex-row gap-10">

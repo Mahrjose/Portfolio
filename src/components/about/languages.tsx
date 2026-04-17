@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import type { Language } from "@/lib/types";
 
-export default function LanguagesGrid({ languages }: { languages: any[] }) {
+export default function LanguagesGrid({ languages }: { languages: Language[] }) {
   return (
     <section aria-labelledby="languages-heading">
       <Card className="card-hover animate-fade-in-up stagger-7">
