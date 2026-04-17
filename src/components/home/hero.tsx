@@ -58,7 +58,7 @@ export function Hero() {
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center pt-6">
           <Button size="default" className="w-full sm:w-auto btn-primary" asChild>
-            <Link href="/contact" aria-label="Contact Mirza Mahrab Hossain">
+            <Link href="/contact" aria-label={`Contact ${hero.name}`}>
               <Mail className="h-4 w-4 mr-2" aria-hidden="true" />
               Get In Touch
             </Link>
