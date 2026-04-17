@@ -18,7 +18,7 @@ export function SummaryCard() {
           {resume.summary}
         </p>
         <div className="grid md:grid-cols-3 gap-4">
-          {resume.summaryMetrics.map((metric, index) => (
+          {resume.summaryMetrics.map((metric) => (
             <div
               key={metric.label}
               className="text-center p-4 bg-muted/30 rounded-lg hover-lift"

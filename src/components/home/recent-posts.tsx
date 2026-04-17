@@ -106,7 +106,7 @@ export function RecentPosts({ blogPosts }: { blogPosts: BlogPost[] }) {
               onScroll={checkScrollButtons}
               className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory px-4 sm:px-0"
             >
-              {blogPosts.map((post, index) => (
+              {blogPosts.map((post) => (
                 <Card
                   key={post.slug || post.url}
                   className="blog-card group card-hover overflow-hidden bg-background snap-start flex flex-col flex-shrink-0 w-full sm:w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1rem)] h-auto rounded-xl shadow-md hover:shadow-lg transition-shadow"

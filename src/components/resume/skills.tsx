@@ -7,7 +7,6 @@ import {
   ShieldCheck,
   Globe,
   Code,
-  Settings,
   CircuitBoard,
   Sparkles,
   Bot,

@@ -3,11 +3,12 @@
 import React, { useMemo, useState, useEffect } from "react";
 import {
   Monitor, Code, Brain, Zap, Terminal, Filter, Globe, Server, Smartphone,
-  Database, Shield, Cloud, Gamepad2, Palette, BarChart3, Settings, ChevronDown
+  Database, Shield, Cloud, Gamepad2, Palette, BarChart3, Settings, ChevronDown,
+  type LucideIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const iconMap: Record<string, React.ComponentType<any>> = {
+const iconMap: Record<string, LucideIcon> = {
   All: Filter,
   "Computer Graphics": Monitor,
   "Web Development": Code,
@@ -26,7 +27,7 @@ const iconMap: Record<string, React.ComponentType<any>> = {
   "Frontend Development": Globe,
 };
 
-const getIconForType = (type: string): React.ComponentType<any> => {
+const getIconForType = (type: string): LucideIcon => {
   return iconMap[type] || Code;
 };
 
