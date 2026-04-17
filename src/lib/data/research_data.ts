@@ -33,7 +33,7 @@ export const research = {
       collaborators: [],
       methods: ["NLP", "Text Preprocessing", "Supervised Learning", "Data Visualization"],
       paperLink: "",
-      codeLink: "https://github.com/yourname/sentiment-analysis-basics",
+      codeLink: "",
       demoLink: "",
     },
   ],

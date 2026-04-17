@@ -75,8 +75,29 @@ const personJsonLd = {
   '@type': 'Person',
   name: meta.name,
   url: domain,
-  jobTitle: 'AI Engineer & Software Developer',
-  description: 'AI Engineer and Software Developer specializing in machine learning, cybersecurity, and web development.',
+  jobTitle: meta.jobTitle,
+  description: 'AI Engineer and Software Developer specializing in LLMs, AI agents, voice AI, cybersecurity, and scalable software systems.',
+  email: meta.email,
+  telephone: meta.phone,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Dhaka',
+    addressCountry: 'BD',
+  },
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Pipeline Inc',
+    url: 'https://ppln.co/en',
+  },
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'BRAC University',
+    url: 'https://www.bracu.ac.bd',
+  },
+  knowsAbout: [
+    'Large Language Models', 'AI Agents', 'Voice AI', 'Machine Learning',
+    'Cybersecurity', 'Python', 'TypeScript', 'Next.js', 'DevOps', 'Software Engineering',
+  ],
   sameAs: [
     meta.social.twitter,
     meta.social.facebook,

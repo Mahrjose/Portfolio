@@ -11,7 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { useScrollReveal } from "@/hooks/use-scrollReveal";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { TechStackBadges } from "./tech-stack-badges";
 import { ProjectFooter } from "./project-footer";
 import type { Project } from "@/lib/types";

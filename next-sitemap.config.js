@@ -4,10 +4,10 @@ export default {
   sitemapSize: 50,
   robotsTxtOptions: {
     policies: [
-      {
-        userAgent: '*',
-        allow: '/',
-      },
+      { userAgent: '*', allow: '/' },
+    ],
+    additionalSitemaps: [
+      'https://mahrabhossain.me/sitemap.xml',
     ],
   },
 };

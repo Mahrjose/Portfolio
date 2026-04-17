@@ -11,7 +11,7 @@ export const meta = {
   twitterHandle: "@mahrjosee",
   location: "Dhaka, Bangladesh",
   phone: "+880 1869-585472",
-  email: "mirzamahrabhossain.com",
+  email: "mirzamahrabhossain@gmail.com",
   social: {
     facebook:   "https://www.facebook.com/mirzamahrabhossain/",
     discord:    "https://discordapp.com/users/606866601907716218",

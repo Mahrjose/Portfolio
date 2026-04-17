@@ -24,7 +24,7 @@ export const education = {
       thesis: {
         title: "A Decentralized Framework for Government Issued NID using Self Sovereign Identity",
         supervisor: "Dr. Jannatun Noor Mukta",
-        publicationUrl: "#",
+        publicationUrl: "http://hdl.handle.net/10361/26757",
         publisher: "BracU DSpace",
         keywords: [
           "Self-Sovereign Identity (SSI)",

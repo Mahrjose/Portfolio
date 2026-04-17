@@ -1,0 +1,29 @@
+# Mirza Mahrab Hossain
+
+> AI Engineer & Software Developer based in Dhaka, Bangladesh. Specializing in LLMs, AI Agents, Voice AI, and Cybersecurity.
+
+## About
+
+Mirza Mahrab Hossain is an AI Engineer currently working at Pipeline Inc (Dhaka, Bangladesh) as a Junior AI Engineer on a hybrid basis since August 2025. He holds a degree from BRAC University and has 1+ years of professional experience building intelligent systems, AI agents, and scalable software.
+
+His technical focus areas include: Large Language Models (LLMs), AI Agents, Voice AI, Machine Learning, Cybersecurity, DevOps, and full-stack Web Development.
+
+## Contact
+
+- Website: https://mahrabhossain.me
+- Email: mirzamahrabhossain.com
+- GitHub: https://github.com/Mahrjose
+- LinkedIn: https://www.linkedin.com/in/mirzamahrabhossain/
+- Twitter/X: https://x.com/mahrjosee
+- Blog: https://blog.mahrabhossain.me
+
+## Pages
+
+- [Home](https://mahrabhossain.me/): Portfolio overview, featured projects, recent blog posts
+- [About](https://mahrabhossain.me/about): Personal background, story, interests, philosophy
+- [Projects](https://mahrabhossain.me/projects): Full portfolio of software, AI, and cybersecurity projects
+- [Resume](https://mahrabhossain.me/resume): Professional experience, skills, certifications
+- [Education](https://mahrabhossain.me/education): Academic background and online learning
+- [Research](https://mahrabhossain.me/research): Research projects and publications
+- [Blog](https://blog.mahrabhossain.me): Technical articles and writeups (hosted on Hashnode)
+- [Contact](https://mahrabhossain.me/contact): Get in touch

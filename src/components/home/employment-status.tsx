@@ -18,7 +18,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { motion } from "framer-motion";
-import { useScrollReveal } from "@/hooks/use-scrollReveal";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 export function EmploymentStatus() {
   const { ref, isVisible } = useScrollReveal();
