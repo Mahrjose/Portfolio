@@ -13,13 +13,13 @@ const ITEMS_PER_PAGE = 8;
 
 type Props = {
   portfolioData: {
-    projects: Project[];
+    projects: { description: string; items: Project[] };
     wakatime: { last7days: string };
   };
 };
 
 export default function ProjectsClient({ portfolioData }: Props) {
-  const { projects, wakatime } = portfolioData;
+  const { projects: { items: projects }, wakatime } = portfolioData;
 
   const [activeType, setActiveType] = useState("All");
   const [search, setSearch] = useState("");

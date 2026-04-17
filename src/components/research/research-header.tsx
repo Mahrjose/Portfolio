@@ -1,3 +1,5 @@
+import { portfolioData } from "@/lib/data/data";
+
 export default function ResearchHeader() {
   return (
     <header className="text-center mb-16">
@@ -8,7 +10,7 @@ export default function ResearchHeader() {
         className="text-large text-muted-foreground max-w-3xl mx-auto"
         tabIndex={0}
       >
-        Engaged in independent research, continuously exploring and analyzing topics of interest while developing new insights and practical understanding
+        {portfolioData.research.description}
       </p>
     </header>
   );

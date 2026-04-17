@@ -1,11 +1,9 @@
-export const metadata = {
-  title: 'Education | Mirza Mahrab Hossain',
-  description: 'Explore the academic background and online learning journey of Mirza Mahrab Hossain.',
-};
-
+import { buildMetadata } from '@/lib/metadata';
 import FormalEducation from '@/components/education/formal-education';
 import OnlineCourses from '@/components/education/online-courses';
 import LearningPhilosophy from '@/components/education/philosophy';
+
+export const metadata = buildMetadata('education');
 
 export default function EducationPage() {
   return (

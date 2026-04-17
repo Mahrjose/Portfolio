@@ -1,8 +1,4 @@
-export const metadata = {
-  title: 'Resume | Mirza Mahrab Hossain',
-  description: 'Professional resume showcasing experience in Software Engineering.',
-};
-
+import { buildMetadata } from '@/lib/metadata';
 import { ResumeDownload } from '@/components/resume/download';
 import { ContactCard } from '@/components/resume/resume-contact';
 import { LanguageCard } from '@/components/resume/languages';
@@ -12,6 +8,8 @@ import { ExperienceCard } from '@/components/resume/experience';
 import { SkillsGrid } from '@/components/resume/skills';
 import { CertificationsCard } from '@/components/resume/certifications';
 import { AchievementsCard } from '@/components/resume/achievements';
+
+export const metadata = buildMetadata('resume');
 
 export default function ResumePage() {
   return (

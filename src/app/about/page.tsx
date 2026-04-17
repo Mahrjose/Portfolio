@@ -1,8 +1,4 @@
-export const metadata = {
-  title: 'About | Mirza Mahrab Hossain',
-  description: 'Learn more about Mirza Mahrab Hossain — Software engineer, AI & Cybersecurity enthusiast, and passionate developer.',
-};
-
+import { buildMetadata } from '@/lib/metadata';
 import AboutHeader from '@/components/about/about-header';
 import ProfileSidebarCard from '@/components/about/profile';
 import MyStorySection from '@/components/about/personal-story';
@@ -12,6 +8,8 @@ import PlatformsGrid from '@/components/about/socials';
 import LanguagesGrid from '@/components/about/languages';
 import PhilosophySection from '@/components/about/philosophy';
 import { portfolioData } from '@/lib/data/data';
+
+export const metadata = buildMetadata('about');
 
 export default function AboutPage() {
   const { about, hero } = portfolioData;

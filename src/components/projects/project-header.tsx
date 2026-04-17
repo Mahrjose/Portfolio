@@ -1,3 +1,5 @@
+import { portfolioData } from "@/lib/data/data";
+
 export default function ProjectsHeader() {
   return (
     <header className="text-center mb-6">
@@ -5,7 +7,7 @@ export default function ProjectsHeader() {
         Projects
       </h1>
       <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-        Explore a curated showcase of my wide range of development and personal projects, bringing impactful solutions to life.
+        {portfolioData.projects.description}
       </p>
     </header>
   );

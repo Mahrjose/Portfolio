@@ -1,13 +1,11 @@
-export const metadata = {
-  title: 'Contact | Mirza Mahrab Hossain',
-  description: 'Get in touch with Mirza Mahrab Hossain for collaborations, job opportunities, or research discussions.',
-};
-
+import { buildMetadata } from '@/lib/metadata';
 import ContactHeader from '@/components/contact/contact-header';
 import ContactInfoCard from '@/components/contact/info-card';
 import SocialLinksCard from '@/components/contact/socials';
 import ResponseTimeCard from '@/components/contact/response';
 import ContactFormCard from '@/components/contact/contact-form';
+
+export const metadata = buildMetadata('contact');
 
 export default function ContactPage() {
   return (

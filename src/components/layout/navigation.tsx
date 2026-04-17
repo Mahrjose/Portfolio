@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/layout/theme-toggle"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { navItems } from "@/lib/data/data"
+import { navItems, meta } from "@/lib/data/data"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -68,7 +68,7 @@ export function Navigation() {
             onClick={() => handleNavClick("/")}
             className="font-bold text-lg sm:text-xl text-foreground hover:text-primary transition-colors duration-200 ease-in-out cursor-pointer"
           >
-            Mirza Mahrab Hossain
+            {meta.name}
           </button>
 
           {/* Desktop Navigation */}

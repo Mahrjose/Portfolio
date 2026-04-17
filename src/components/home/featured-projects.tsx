@@ -26,7 +26,7 @@ import { TechStackBadges } from "@/components/projects/tech-stack-badges";
 import { ProjectFooter } from "@/components/projects/project-footer";
 
 export function FeaturedProjects() {
-  const { projects } = portfolioData;
+  const { projects: { items: projects } } = portfolioData;
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);

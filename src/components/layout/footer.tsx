@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Heart } from "lucide-react";
 import { SocialIcons } from "@/components/layout/social-icons";
-import { portfolioData, navItems, specialties } from "@/lib/data/data";
+import { portfolioData, navItems, specialties, meta, site } from "@/lib/data/data";
 
 export function Footer() {
   return (
@@ -9,9 +9,9 @@ export function Footer() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <h3 className="font-bold text-lg mb-4 gradient-text">Mirza Mahrab Hossain</h3>
+            <h3 className="font-bold text-lg mb-4 gradient-text">{meta.name}</h3>
             <p className="text-muted-foreground mb-4">
-              Software Engineer passionate about building intelligent systems and solutions that make a difference.
+              {site.tagline}
             </p>
             <SocialIcons social={portfolioData.hero.social} />
           </div>
@@ -55,7 +55,7 @@ export function Footer() {
 
         <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
           <p className="flex items-center justify-center gap-1">
-            Made with <Heart className="h-4 w-4 text-red-500 animate-pulse" /> by Mirza Mahrab Hossain
+            Made with <Heart className="h-4 w-4 text-red-500 animate-pulse" /> by {meta.name}
           </p>
           <p className="mt-2">© {new Date().getFullYear()} All rights reserved.</p>
         </div>
